@@ -1,0 +1,219 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  min-width: 375px;
+  width: 100%;
+  height: 100%;
+}
+body::-webkit-scrollbar {
+  width: 4px;
+}
+body::-webkit-scrollbar-thumb {
+  width: 2.5px;
+  height: 50px;
+  background-color: #252827;
+  border-radius: 5px;
+}
+
+video {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  opacity: 0.35;
+  background-color: white;
+}
+
+/*Header Superior*/
+.hero__header {
+  background-color: rgb(167, 166, 167);
+  width: 100%;
+  opacity: 0.8;
+}
+
+/*Barra Menu*/
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1.8rem;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .nav {
+    padding: 0;
+    gap: 1rem;
+  }
+}
+.nav__logoContainer {
+  display: flex;
+  align-items: center;
+}
+.nav__logoContainer__logo {
+  width: 50px;
+}
+@media (max-width: 768px) {
+  .nav__logoContainer__logo {
+    width: 30px;
+  }
+}
+.nav__text {
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 2em;
+}
+.nav__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.nav__search__button {
+  background-color: #dedede;
+  color: #252827;
+  font-weight: 500;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+}
+.nav__search__button:hover {
+  background-color: #252827;
+  color: #dedede;
+}
+@media (max-width: 768px) {
+  .nav__search__button {
+    width: 75px;
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+.hero {
+  max-width: 1250px;
+  width: 100%;
+  height: 74vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+}
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    height: auto;
+  }
+}
+.hero__text {
+  width: 40%;
+}
+@media (max-width: 768px) {
+  .hero__text {
+    width: 100%;
+  }
+}
+.hero__circle {
+  height: 300px;
+  width: 300px;
+  background-color: rgb(167, 166, 167);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+@media (max-width: 768px) {
+  .hero__circle {
+    height: 150px;
+    width: 150px;
+  }
+}
+.hero__circle:hover {
+  background-color: #252827;
+  color: #dedede;
+  box-shadow: -2px 2px 26px 0px rgba(46, 46, 46, 0.75);
+  -webkit-box-shadow: -2px 2px 26px 0px rgba(46, 46, 46, 0.75);
+  -moz-box-shadow: -2px 2px 26px 0px rgba(46, 46, 46, 0.75);
+}
+.hero__circle__img {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+.footer {
+  background-color: rgb(167, 166, 167);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+  }
+}
+.footer__conditions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  color: #252827;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+}
+.footer__conditions__item {
+  transition: all 300ms ease;
+}
+.footer__conditions__item:hover {
+  background-color: #252827;
+  color: #dedede;
+  border-radius: 0.3rem;
+}
+.footer__socialmedia {
+  display: flex;
+  gap: 1.5rem;
+}
+.footer__socialmedia__container {
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 0.2rem solid #353a3b;
+  border-radius: 50%;
+  transition: background-color 300ms ease;
+}
+.footer__socialmedia__container:hover {
+  background-color: #353a3b;
+}
+.footer__socialmedia__container__image {
+  width: 25px;
+  cursor: pointer;
+}
+.footer__creator {
+  display: block;
+  color: #252827;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+/*# sourceMappingURL=styleIndex.css.map */

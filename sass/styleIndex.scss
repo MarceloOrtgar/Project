@@ -1,0 +1,232 @@
+@use "variables";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: variables.$font-family;
+  min-width: 375px;
+  width: 100%;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 2.5px;
+    height: 50px;
+    background-color: variables.$dark;
+    border-radius: 5px;
+  }
+}
+
+video {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: -1;
+  opacity: 0.35;
+  background-color: white;
+}
+
+/*Header Superior*/
+.hero__header {
+  background-color: rgb(167, 166, 167);
+  width: 100%;
+  opacity: 0.8;
+}
+
+/*Barra Menu*/
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1.8rem;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    gap: 1rem;
+  }
+
+  & {
+    &__logoContainer {
+      display: flex;
+      align-items: center;
+      &__logo {
+        width: 50px;
+        @media (max-width: 768px) {
+          width: 30px;
+        }
+      }
+    }
+
+    &__text {
+      width: 100%;
+      text-align: center;
+      font-weight: 800;
+      font-size: 2em;
+    }
+
+    &__search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+
+      &__button {
+        background-color: variables.$ligther;
+        color: variables.$dark;
+        font-weight: 500;
+        border-radius: 1rem;
+        padding: 0.4rem 0.8rem;
+        border: none;
+        font-family: variables.$font-family;
+        cursor: pointer;
+        transition: background-color 300ms ease;
+
+        &:hover {
+          background-color: variables.$dark;
+          color: variables.$ligther;
+        }
+        @media (max-width: 768px) {
+          width: 75px;
+          padding: 0.2rem 0.4rem;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  max-width: 1250px;
+  width: 100%;
+  height: 74vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  &__text {
+    width: 40%;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+  }
+
+  &__circle {
+    height: 300px;
+    width: 300px;
+    background-color: rgb(167, 166, 167);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 300ms ease;
+
+    @media (max-width: 768px) {
+      height: 150px;
+      width: 150px;
+    }
+
+    &:hover {
+      background-color: variables.$dark;
+      color: variables.$ligther;
+      box-shadow: -2px 2px 26px 0px rgba(46, 46, 46, 0.75);
+      -webkit-box-shadow: -2px 2px 26px 0px rgba(46, 46, 46, 0.75);
+      -moz-box-shadow: -2px 2px 26px 0px rgba(46, 46, 46, 0.75);
+    }
+
+    &__img {
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+    }
+  }
+}
+
+.footer {
+  background-color: rgb(167, 166, 167);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+  }
+
+  &__conditions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    color: variables.$dark;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+
+    &__item {
+      transition: all 300ms ease;
+      &:hover {
+        background-color: variables.$dark;
+        color: variables.$ligther;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+
+  &__socialmedia {
+    display: flex;
+    gap: 1.5rem;
+
+    &__container {
+      padding: 0.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      outline: variables.$outline;
+      border-radius: 50%;
+      transition: background-color 300ms ease;
+
+      &:hover {
+        background-color: variables.$lightgray;
+      }
+
+      &__image {
+        width: 25px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__creator {
+    display: block;
+    color: variables.$dark;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.8rem;
+  }
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevCar</title>
+    <link rel="icon" href="../images/icons8-car-repair-64.png" />
+    <link rel="stylesheet" href="../css/styleMain.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="loading">
+      <div class="loading__container">
+        <div class="loading__container__ring"></div>
+        <div class="loading__container__ring"></div>
+        <div class="loading__container__ring"></div>
+        <span class="loading__text">Cargando...</span>
+      </div>
+    </section>
+
+
+    <header class="hero__header">
+      <nav class="nav">
+        <section class="nav__logoContainer">
+          <img
+            src="../images/icons8-car-repair-64.png"
+            alt="Logo principal"
+            class="nav__logoContainer__logo"
+          />
+          <h1 class="nav__logoContainer__text">DevCar</h1>
+        </section>
+        <img src="../images/Menu.svg" alt="hamburguer menu" class="nav__ham" />
+        <img
+          src="../images/Close.svg"
+          alt="Close hamburguer menu"
+          class="nav__closeHam"
+        />
+
+        <ul class="nav__listContainer">
+          <li class="nav__listContainer__item">
+            <a href="#" class="nav__listContainer__item__link">Inicio</a>
+          </li>
+
+          <li class="nav__listContainer__item">
+            <a href="#" class="nav__listContainer__item__link"
+              >Lista de Vehículos</a
+            >
+            <ul class="nav__listContainer__item__categories">
+     
+            </ul>
+          </li>
+
+        </ul>
+        <section class="nav__search">
+          <div class="nav__search__inputContainer">
+            <label
+              for="searchCode"
+              class="nav__search__inputContainer__label"
+            >Label</label>
+            <input
+              type="text"
+              name="searchCode"
+              id="searchCode"
+              class="nav__search__inputContainer__input"
+              placeholder="Búsqueda...."
+              autocomplete="off"
+            />
+            <ul class="nav__search__inputContainer__listSearch"></ul>
+
+            <
+          </div>
+          <button class="nav__search__button">Perfil</button>
+          <button class="nav__search__button">Salir</button>
+        </section>
+      </nav>
+    </header>
+
+    <main class="hero">
+      <h2 class="hero__title">Mis vehículos</h2>
+
+      <form class="hero__search__inputContainer">
+        <label for="searchCar" class="hero__search__inputContainer__label">Label</label>
+        <input
+          type="text"
+          name="searchCar"
+          id="searchCar"
+          class="hero__search__inputContainer__input"
+          placeholder="Búsqueda...."
+          autocomplete="off"
+        />
+        <button type="submit" class="hero__search__inputContainer__button">
+          Agregar
+        </button>
+        <ul class="hero__search__inputContainer__listSearch"></ul>
+      </form>
+
+      <section class="hero__cards"></section>
+    </main>
+
+    
+    <footer class="footer">
+      <section class="nav__logoContainer">
+        <img
+          src="../images/icons8-car-repair-64.png"
+          alt="Logo principal"
+          class="nav__logoContainer__logo"
+        />
+      </section>
+      <section class="footer__conditions">
+        <p class="footer__conditions__item">Términos y condiciones</p>
+        <p class="footer__conditions__item">Política de cookies</p>
+        <p class="footer__conditions__item">Política de privacidad</p>
+    </section>
+    <section class="footer__socialmedia">
+      <div class="footer__socialmedia__container"><img src="../images/Facebook.svg" alt="Red social Facebook" class="footer__socialmedia__container__image"></div>
+      <div class="footer__socialmedia__container"><img src="../images/Instagram.svg" alt="Red social Instagram" class="footer__socialmedia__container__image"></div>
+      <div class="footer__socialmedia__container"><img src="../images/Twitter.svg" alt="Red social Twitter" class="footer__socialmedia__container__image"></div>
+    </section>
+    <section class="footer__creator">
+      <p>© Todos los Derechos Reservados</p>
+      <P>DevCar</P>
+      <p>Desarrollado por: Marcelo Ortega</p>
+    </footer>
+
+
+    <div class="blockMenu">
+    </div>
+    <div class="alertMessage">
+      <div class="alert">
+        <h2>El vehículo ya existe, ¿deseas crear una tarjeta nueva del mismo?</h2>
+        <div class="alert__container">
+        <button class="alert__add">Agregar</button>
+        <button class="alert__reject">Rechazar</button>
+        </div>
+      </div>
+    </div>
+
+    <template id="template-categoriesSearchModels">
+      <li class="hero__search__inputContainer__listSearch__categoryContainer">
+        <img
+          class="hero__search__inputContainer__listSearch__categoryContainer__img"
+          src="../images/Mazda.jpg"
+          alt="Vehiculo Mazda"
+        />
+        <a
+          class="hero__search__inputContainer__listSearch__categoryContainer__link"
+          >Acción</a
+        >
+      </li>
+    </template>
+
+    <template id="template-addCar">
+      <article class="card">
+        <section class="card__container">
+          <img
+            class="card__container__img"
+            src="../images/Mazda.jpg"
+            alt="Pelicula"
+          />
+        </section>
+
+        <section class="card__containerDelete">
+          <h3 class="card__containerDelete__text">
+            Eliminar Vehículo de mi Registro
+          </h3>
+          <h3 class="card__containerDelete__id">Id del Vehiculo</h3>
+          <img
+            class="card__containerDelete__imgClose"
+            src="../images/CloseCard.svg"
+            alt="Imagen de eliminacion"
+          />
+        </section>
+
+        <section class="card__containerText">
+          <h2 class="card__containerText__details">Especificaciones</h2>
+          <h3 class="card__containerText__model">Mazda 3</h3>
+          <h3 class="card__containerText__transmission">
+            Transmisión Automática
+          </h3>
+          <h3 class="card__containerText__fuel">Gasolina</h3>
+          <h3 class="card__containerText__engineOil">Aceite de motor: 20w50</h3>
+          <h3 class="card__containerText__transmissionOil">
+            Aceite de transmisión: Mopar 80w-90
+          </h3>
+        </section>
+
+        <section class="card__containerHistory">
+          <h2 class="card__containerHistory__element">
+            Cambio de aceite del motor
+            <form class="card__containerHistory__element__inputContainerOilMotor">
+              <label
+                for="oilMotor"
+                class="card__containerHistory__element__inputContainerOilMotor__label"
+              >Label</label>
+              <input
+                type="text"
+                name="oilMotor"
+                id="oilMotor"
+                class="card__containerHistory__element__inputContainerOilMotor__inputOilMotor"
+                placeholder="Inserte Kilometraje"
+                autocomplete="off"
+              />
+              <button
+                type="submit"
+                class="card__containerHistory__element__inputContainerOilMotor__buttonOilMotor"
+              >
+                Agregar
+              </button>
+            </form>
+            <h3 class="card__containerHistory__element">
+              Se realizó el cambio al kilometraje
+              <h4 class="card__containerHistory__element__changeOilMotor">0 Km</h4>
+            </h3>
+          </h2>
+
+          <h2 class="card__containerHistory__element">
+            Cambio de aceite de la transmisión
+            <form class="card__containerHistory__element__inputContainerTransmissionOil">
+              <label
+                for="oilMotor"
+                class="card__containerHistory__element__inputContainerTransmissionOil__label"
+              >Label</label>
+              <input
+                type="text"
+                name="oilMotor"
+                id="oilMotor"
+                class="card__containerHistory__element__inputContainerTransmissionOil__inputTransmissionOil"
+                placeholder="Inserte Kilometraje"
+                autocomplete="off"
+              />
+              <button
+                type="submit"
+                class="card__containerHistory__element__inputContainerTransmissionOil__buttonTransmissionOil"
+              >
+                Agregar
+              </button>
+            </form>
+            <h3 class="card__containerHistory__element">
+              Se realizó el cambio al kilometraje
+              <h4 class="card__containerHistory__element__changeTransmissionOil">0 Km</h4>
+            </h3>
+          </h2>
+
+          <h2 class="card__containerHistory__element">
+            Cambio de de Correa/Cadena de Distribución
+            <form class="card__containerHistory__element__inputContainerDistribution">
+              <label
+                for="oilMotor"
+                class="card__containerHistory__element__inputContainerDistribution__label"
+              >Label</label>
+              <input
+                type="text"
+                name="oilMotor"
+                id="oilMotor"
+                class="card__containerHistory__element__inputContainerDistribution__inputDistribution"
+                placeholder="Inserte Kilometraje"
+                autocomplete="off"
+              />
+              <button
+                type="submit"
+                class="card__containerHistory__element__inputContainerDistribution__buttonDistribution"
+              >
+                Agregar
+              </button>
+            </form>
+            <h3 class="card__containerHistory__element">
+              Se realizó el cambio al kilometraje
+              <h4 class="card__containerHistory__element__changeDistribution">0 Km</h4>
+            </h3>
+          </h2>
+        </section>
+
+      </article>
+    </template>
+
+    <template class="template-listCars">
+      <li class="nav__listContainer__item__categories__element">
+        <a href="#" class="nav__listContainer__item__categories__element__link">MAZDA</a>
+      </li>
+    </template>
+
+    <script src="../js/main.js" type="module"></script>
+
+  </body>
+</html>
