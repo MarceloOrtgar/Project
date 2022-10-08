@@ -44,7 +44,7 @@ body {
     left: 0;
     bottom: 0;
     background-color: rgba(21, 23, 24, 0.8);
-    z-index: 20;
+    z-index: 19;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,14 +244,14 @@ body {
           color: variables.$ligth;
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
           position: relative;
-          top: 50px;
-          left: 20px;
+          top: 00px;
+          left: 50px;
           right: 0;
           padding: 0.5rem 0;
           visibility: hidden;
           opacity: 0;
           z-index: 10;
-          transition: visibility, opacity, 150ms ease;
+          transition: visibility, opacity, 200ms ease-out;
 
           @media (max-width: 768px) {
             left: 300px;
@@ -664,6 +664,18 @@ main {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      font-size: 1.5em;
+      width: 100%;
+      max-width:  300px;
+
+
+      &__changeOilMotor,
+      &__changeTransmissionOil,
+      &__changeDistribution {
+        font-size:1.5em
+
+      }
+
       &__inputContainerOilMotor,
       &__inputContainerTransmissionOil,
       &__inputContainerDistribution {
@@ -672,6 +684,7 @@ main {
         justify-content: center;
         align-items: center;
         gap: 1rem;
+
 
 
         @media (max-width: 768px) {
@@ -718,6 +731,8 @@ main {
             color: variables.$ligther;
           }
         }
+
+
       }
     }
   }

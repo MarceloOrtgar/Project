@@ -165,6 +165,12 @@ function renderAddCar(match) {
       .querySelector(".card__containerHistory")
       .setAttribute("id", `${cars.id}`);
 
+      clonecarAdd
+      .querySelector(
+        ".card__containerHistory__element__inputContainerOilMotor__label"
+      )
+      .setAttribute("for", `${cars.id}`);
+
     clonecarAdd
       .querySelector(
         ".card__containerHistory__element__inputContainerOilMotor__inputOilMotor"
@@ -178,8 +184,9 @@ function renderAddCar(match) {
     clonecarAdd
       .querySelector(".card__containerHistory__element__changeOilMotor")
       .setAttribute("id", `${cars.id}`);
-    clonecarAdd
-      .querySelector(
+    clonecarAdd.querySelector(".card__containerHistory__element__inputContainerTransmissionOil__label").setAttribute("for", `${cars.id}`);
+
+    clonecarAdd.querySelector(
         ".card__containerHistory__element__inputContainerTransmissionOil__inputTransmissionOil"
       )
       .setAttribute("id", `${cars.id}`);
@@ -191,6 +198,8 @@ function renderAddCar(match) {
     clonecarAdd
       .querySelector(".card__containerHistory__element__changeTransmissionOil")
       .setAttribute("id", `${cars.id}`);
+
+      clonecarAdd.querySelector(".card__containerHistory__element__inputContainerDistribution__inputDistribution").setAttribute("for", `${cars.id}`);
     clonecarAdd
       .querySelector(
         ".card__containerHistory__element__inputContainerDistribution__inputDistribution"
