@@ -58,7 +58,7 @@ let lastCard; //Comparador para conocer si el vehiculo se repite
 let inputOilMotor; //input del historial OilMotor
 let inputTransmissionOil; //input del historial OilMotor
 let inputDistribution; //input del historial OilMotor
-const regularExpressionNumber = /[0-9]{1,10}$/; //Expresion regular para validar solo numeros
+const regularExpressionNumber = /^[0-9]{1,7}$/; //Expresion regular para validar solo numeros
 
 //  INICIO ----- DATA-FETCH - IMPRESION DE LA DATA EN EL HTML
 
@@ -349,6 +349,8 @@ function modifyValues (){
         e.target.addEventListener("keyup", (e) => {
           if (e.target.value.match(regularExpressionNumber)) {
             inputOilMotor = e.target.value.trim();
+          } else{
+            inputOilMotor=0
           }
         });
       }
@@ -378,6 +380,8 @@ function modifyValues (){
         e.target.addEventListener("keyup", (e) => {
           if (e.target.value.match(regularExpressionNumber)) {
             inputTransmissionOil = e.target.value.trim();
+          }else{
+            inputTransmissionOil=0
           }
         });
       }
@@ -407,6 +411,8 @@ function modifyValues (){
         e.target.addEventListener("keyup", (e) => {
           if (e.target.value.match(regularExpressionNumber)) {
             inputDistribution = e.target.value.trim();
+          }else{
+            inputDistribution=0
           }
         });
       }
@@ -462,6 +468,7 @@ Consulta si hay elementos repetidos
     lastCard = listCards[listCards.length - 1];
     renderAddCar(listCards);
     renderlistCars(listCards);
+    
   }
 
   if (e.target.matches(".hero__search__inputContainer__button")) {

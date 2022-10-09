@@ -449,7 +449,8 @@ body {
   }
 }
 
-main {
+
+.hero {
   background: rgb(222, 222, 222);
   background: linear-gradient(
     0deg,
@@ -458,9 +459,6 @@ main {
     rgba(244, 244, 244, 1) 90%,
     rgba(222, 222, 222, 1) 100%
   );
-}
-
-.hero {
   width: 100%;
   min-height: 85vh;
   margin: auto;
