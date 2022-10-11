@@ -11,6 +11,7 @@ body {
   min-width: 375px;
   width: 100%;
   height: 100%;
+  overflow-x: hidden;
 
   &::-webkit-scrollbar {
     width: 4px;
@@ -40,6 +41,7 @@ video {
   background-color: rgb(167, 166, 167);
   width: 100%;
   opacity: 0.8;
+  height: 15vh;
 }
 
 /*Barra Menu*/
@@ -109,7 +111,8 @@ video {
 .heroIndex {
   max-width: 1250px;
   width: 100%;
-  height: 85vh;
+  height: 70vh;
+  min-height: 420px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -118,11 +121,11 @@ video {
 
   @media (max-width: 768px) {
     flex-direction: column;
-    height: auto;
   }
 
   &__text {
     width: 40%;
+    text-align: center;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -130,8 +133,8 @@ video {
   }
 
   &__circle {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     background-color: rgb(167, 166, 167);
     border-radius: 50%;
     display: flex;
@@ -165,16 +168,16 @@ video {
 .footer {
   background-color: rgb(167, 166, 167);
   width: 100%;
+  height: 15vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 1rem;
 
   @media (max-width: 768px) {
-
     flex-direction: column;
-    height: auto;
     gap: 2rem;
+    height: auto;
   }
 
   &__conditions {
@@ -229,5 +232,153 @@ video {
     align-items: flex-start;
     justify-content: center;
     gap: 0.8rem;
+  }
+}
+
+.signIn {
+  position: absolute;
+  background-color: rgb(116, 115, 115);
+  width: 30vw;
+  height: 50vh;
+  max-height: 400px;
+  max-width: 1020;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: right 150ms ease;
+  z-index: 50;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    width: 187.5px;
+
+
+    &__alert {
+      width: 187.5px;
+      color: rgb(167, 35, 35);
+      font-size: 0.8em;
+      text-align: center;
+
+      &__user,
+      &__password {
+        opacity: 0;
+      }
+
+      &__user.active {
+
+        opacity: 1;
+      }
+
+      &__password.active {
+
+        opacity: 1;
+      }
+    }
+
+    &__inputUser {
+      background-color: variables.$ligther;
+      border: variables.$border;
+      width: 80%;
+      border-radius: 0.4rem;
+      transition: width 200ms ease-out;
+      &:focus {
+        box-shadow: 0px 0px 6px 2px variables.$lightgray;
+        outline: none;
+        width: 100%;
+      }
+    }
+
+    &__link {
+      position: relative;
+      z-index: 50;
+    }
+
+    &__button {
+      background-color: variables.$ligther;
+      color: variables.$dark;
+      font-weight: 500;
+      border-radius: 1rem;
+      padding: 0.4rem 0.8rem;
+      border: none;
+      font-family: variables.$font-family;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 300ms ease;
+
+      &:hover {
+        background-color: variables.$dark;
+        color: variables.$ligther;
+      }
+      @media (max-width: 768px) {
+        width: 150px;
+        padding: 0.2rem 0.4rem;
+      }
+    }
+
+    &__containerPassword {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      position: relative;
+
+      &__containerShow {
+        position: absolute;
+        height: 19.2px;
+        border-radius: 0.4rem;
+        top: 50%;
+        left: 92%;
+        font-size: 0.8em;
+        transition: left 200ms ease;
+        color: variables.$lightgray;
+        background-color: variables.$ligther;
+
+        &.active{
+          color: variables.$ligther;
+          background-color: variables.$lightgray;
+        }
+      }
+
+      &__inputPassword {
+        background-color: variables.$ligther;
+        border: variables.$border;
+        width: 80%;
+        border-radius: 0.4rem;
+        transition: width 200ms ease-out;
+        position: relative;
+        &:focus {
+          box-shadow: 0px 0px 6px 2px variables.$lightgray;
+          outline: none;
+          width: 100%;
+
+          & + .signIn__form__containerPassword__containerShow {
+            left: 102%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 70vw;
+  }
+
+  &.disable {
+    position: absolute;
+    right: -200%;
   }
 }

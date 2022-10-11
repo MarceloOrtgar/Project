@@ -43,7 +43,7 @@
       <h2 class="heroIndex__text">DevCar es una aplicación donde puedes llevar el registro mecánico de tu vehículo, para llevar un control de todos sus mantenimientos<br><br>El mantenimiento del coche sirve para prolongar la vida útil de todos los componentes y que las características del vehículo permanezcan lo más iguales posible a cuando estaba nuevo. </h2>
       <div class="heroIndex__circle">
          <img src="../images/car-mechanic-svgrepo-com.svg" alt="Mecanicos examinando un vehiculo" class="heroIndex__circle__img">
-        <h2 class="heroIndex__circle__text">¡Unete!</h2>
+        <h2 class="heroIndex__circle__text">¡Únete!</h2>
         </div>
     </main>
 
@@ -71,5 +71,27 @@
       <P>DevCar</P>
       <p>Desarrollado por: Marcelo Ortega</p>
     </footer>
+
+    <article class="signIn disable">
+      <h2 class="signIn__text">Iniciar Sesión</h2>
+      <form class="signIn__form"> 
+        <label for="user" class="signIn__form__labelUser">Usuario</label>
+        <input type="text" name="user" id="user" class="signIn__form__inputUser">
+        <div class="signIn__form__alert"><h3 class="signIn__form__alert__user">El usuario es incorrecto</h3> </div>
+        <div class="signIn__form__containerPassword">
+          <label for="password" class="signIn__form__containerPassword__labelPassword">Contraseña</label>
+          <input type="password" name="password" id="password" class="signIn__form__containerPassword__inputPassword">
+          <div class="signIn__form__containerPassword__containerShow">
+            <h3 class="signIn__form__containerPassword__containerShow__text">Mostrar</h3>
+          </div>
+        </div>
+        <div class="signIn__form__alert"><h3 class="signIn__form__alert__password">la contraseña es incorrecta</h3> </div>
+        <a  class="signIn__form__button" href="../templates/main.html">Iniciar Sesión</a>
+      </form>
+    </article>
+    <div class="blockMenu">
+    </div>
+
+    <script src="../js/presentation.js"></script>
   </body>
 </html>

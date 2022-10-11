@@ -347,9 +347,10 @@ function modifyValues (){
         )
       ) {
         e.target.addEventListener("keyup", (e) => {
+          e.stopImmediatePropagation()
           if (e.target.value.match(regularExpressionNumber)) {
             inputOilMotor = e.target.value.trim();
-          } else{
+          }else{
             inputOilMotor=0
           }
         });
@@ -358,14 +359,18 @@ function modifyValues (){
         e.target.matches(
           ".card__containerHistory__element__inputContainerOilMotor__buttonOilMotor"
         )
-      ) {
+      ) 
+       {
         changeOilCars = document.querySelectorAll(
           ".card__containerHistory__element__changeOilMotor"
         );
+        if(inputOilMotor===undefined){
+          inputOilMotor=0
+        }
         e.target.addEventListener("click", (e) => {
           changeOilCars.forEach((changeCar) => {
             if (changeCar.id.match(history.id)) {
-              changeCar.textContent = `${inputOilMotor}Km`;
+              changeCar.textContent = `${inputOilMotor} Km`;
             }
           });
         });
@@ -393,10 +398,13 @@ function modifyValues (){
         changeTransmissionOil = document.querySelectorAll(
           ".card__containerHistory__element__changeTransmissionOil"
         );
+        if(inputTransmissionOil===undefined){
+          inputTransmissionOil=0
+        }
         e.target.addEventListener("click", (e) => {
           changeTransmissionOil.forEach((changeCar) => {
             if (changeCar.id.match(history.id)) {
-              changeCar.textContent = `${inputTransmissionOil}Km`;
+              changeCar.textContent = `${inputTransmissionOil} Km`;
             }
           });
         });
@@ -424,10 +432,13 @@ function modifyValues (){
         changeDistribution = document.querySelectorAll(
           ".card__containerHistory__element__changeDistribution"
         );
+        if(inputDistribution===undefined){
+          inputDistribution=0
+        }
         e.target.addEventListener("click", (e) => {
           changeDistribution.forEach((changeCar) => {
             if (changeCar.id.match(history.id)) {
-              changeCar.textContent = `${inputDistribution}Km`;
+              changeCar.textContent = `${inputDistribution} Km`;
             }
           });
         });
@@ -468,6 +479,7 @@ Consulta si hay elementos repetidos
     lastCard = listCards[listCards.length - 1];
     renderAddCar(listCards);
     renderlistCars(listCards);
+    modifyValues()
     
   }
 
