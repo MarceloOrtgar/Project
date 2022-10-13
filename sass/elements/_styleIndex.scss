@@ -29,8 +29,8 @@ video {
   position: absolute;
   bottom: 0;
   right: 0;
-  min-height: 100%;
-  min-width: 100%;
+  min-height: 100vh;
+  min-width: 100vw;
   z-index: -1;
   opacity: 0.35;
   background-color: white;
@@ -53,6 +53,7 @@ video {
   gap: 1rem;
   padding: 1.8rem;
   width: 100%;
+  height: 100%;
 
   @media (max-width: 768px) {
     padding: 0;
@@ -76,6 +77,10 @@ video {
       text-align: center;
       font-weight: 800;
       font-size: 2em;
+
+      @media (max-width: 768px) {
+        font-size: 1em;
+      }
     }
 
     &__search {
@@ -84,7 +89,12 @@ video {
       justify-content: center;
       gap: 1.5rem;
 
-      &__button {
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      &__buttonSign, &__buttonRegistration {
         background-color: variables.$ligther;
         color: variables.$dark;
         font-weight: 500;
@@ -94,6 +104,10 @@ video {
         font-family: variables.$font-family;
         cursor: pointer;
         transition: background-color 300ms ease;
+        text-decoration: none;
+        height: 25px;
+        display: block;
+        font-size: 0.8em;
 
         &:hover {
           background-color: variables.$dark;
@@ -119,6 +133,8 @@ video {
   padding: 1rem;
   background-color: transparent;
 
+
+
   @media (max-width: 768px) {
     flex-direction: column;
   }
@@ -126,9 +142,12 @@ video {
   &__text {
     width: 40%;
     text-align: center;
+    font-size: 1.2em;
+
 
     @media (max-width: 768px) {
       width: 100%;
+      font-size: 1em;
     }
   }
 
@@ -136,12 +155,14 @@ video {
     height: 200px;
     width: 200px;
     background-color: rgb(167, 166, 167);
+    color: variables.$dark;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    text-decoration: none;
     transition: all 300ms ease;
 
     @media (max-width: 768px) {
@@ -274,14 +295,10 @@ video {
       &__user,
       &__password {
         opacity: 0;
+        transition: opacity 200ms ease;
       }
 
-      &__user.active {
-
-        opacity: 1;
-      }
-
-      &__password.active {
+      &__user.active, &__password.active  {
 
         opacity: 1;
       }
@@ -315,6 +332,7 @@ video {
       font-family: variables.$font-family;
       cursor: pointer;
       text-decoration: none;
+      text-align: center;
       transition: background-color 300ms ease;
 
       &:hover {
@@ -335,21 +353,23 @@ video {
       text-align: center;
       width: 100%;
       position: relative;
+      gap: 0.8rem;
 
       &__containerShow {
         position: absolute;
         height: 19.2px;
         border-radius: 0.4rem;
-        top: 50%;
-        left: 92%;
+        top: 63%;
+        left: 61%;
         font-size: 0.8em;
         transition: left 200ms ease;
         color: variables.$lightgray;
         background-color: variables.$ligther;
-
+        cursor: pointer;
         &.active{
           color: variables.$ligther;
           background-color: variables.$lightgray;
+
         }
       }
 
@@ -366,7 +386,7 @@ video {
           width: 100%;
 
           & + .signIn__form__containerPassword__containerShow {
-            left: 102%;
+            left: 71%;
           }
         }
       }
@@ -374,11 +394,13 @@ video {
   }
 
   @media (max-width: 768px) {
-    width: 70vw;
+    width: 80vw;
   }
 
   &.disable {
     position: absolute;
     right: -200%;
+    display: none;
+
   }
 }

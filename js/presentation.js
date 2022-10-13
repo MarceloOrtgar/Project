@@ -1,4 +1,4 @@
-const buttonSignIn = document.querySelector(".nav__search__button");
+const buttonSignIn = document.querySelector(".nav__search__buttonSign");
 const signIn = document.querySelector(".signIn");
 const blockMenu = document.querySelector(".blockMenu");
 
@@ -24,7 +24,7 @@ const showHidepassword=document.querySelector(".signIn__form__containerPassword_
 window.addEventListener("click", (e) => {
  console.log(e.target)
 
-  if (e.target.matches(".nav__search__button")) {
+  if (e.target.matches(".nav__search__buttonSign")) {
     signIn.classList.remove("disable");
     blockMenu.classList.add("active");
   }

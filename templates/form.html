@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevCar</title>
+    <link rel="icon" href="../images/icons8-car-repair-64.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body class="formBody">
+    <h1 class="title">DevCar <br /><i>¡Protege tu vehículo!</i></h1>
+    <main class="heroContainer">
+      <article class="heroForm">
+        <form
+          action="https://formspree.io/f/xdojdlra"
+          method="POST"
+          id="my-form"
+          class="form"
+        >
+          <h2 class="form__title">Regístrate</h2>
+          <section class="form__container">
+            <div class="form__container__subcontainer">
+              <label class="form__container__subcontainer__label" for="name">
+                Nombre:
+              </label>
+              <input
+                type="text"
+                name="name"
+                class="form__container__subcontainer__inputName"
+                id="name"
+                autocomplete="off"
+              />
+              <div class="form__container__subcontainer__alert">
+                <h3 class="form__container__subcontainer__alert__name">
+                  Debes introducir un nombre
+                </h3>
+              </div>
+            </div>
+            <div class="form__container__subcontainer">
+              <label class="form__container__subcontainer__label" for="lasName">
+                Apellido:
+              </label>
+              <input
+                type="text"
+                name="lastname"
+                class="form__container__subcontainer__inputLastname"
+                id="lastName"
+                autocomplete="off"
+              />
+              <div class="form__container__subcontainer__alert">
+                <h3 class="form__container__subcontainer__alert__lastname">
+                  Debes introducir un apellido
+                </h3>
+              </div>
+            </div>
+          </section>
+          <section class="form__container">
+            <div class="form__container__subcontainer">
+              <label class="form__container__subcontainer__label" for="email">
+                Email:
+              </label>
+              <input
+                type="email"
+                name="email"
+                class="form__container__subcontainer__inputEmail"
+                id="email"
+                autocomplete="off"
+              />
+              <div class="form__container__subcontainer__alert">
+                <h3 class="form__container__subcontainer__alert__email">
+                  Debes introducir un email válido
+                </h3>
+              </div>
+            </div>
+            <div class="form__container__subcontainer">
+              <label
+                class="form__container__subcontainer__label"
+                for="password"
+              >
+                Contraseña:
+              </label>
+              <input
+                type="text"
+                name="password"
+                class="form__container__subcontainer__inputPassword"
+                id="password"
+                autocomplete="off"
+              />
+              <div class="form__container__subcontainer__alert">
+                <h3 class="form__container__subcontainer__alert__password">
+                  Debes introducir una contraseña válida
+                  <div>
+                    <ul class="conditions">
+                      <li class="conditions__list__element">Debe contener de 6 a 16 caracteres</li>
+                      <li class="conditions__list__element">Debe contener al menos 1 carácter en minúscula y al menos uno en mayúscula</li>
+                      <li class="conditions__list__element">Debe contener al menos un número</li>
+                      <li class="conditions__list__element">Debe contener al menos un carácter especial</li>
+                    </ul>
+                  </div>
+                </h3>
+              </div>
+            </div>
+          </section>
+
+
+          <button type="submit" class="form__button">Regístrate</button>
+        </form>
+        <a href="../templates/index.html"" class="heroForm__home">
+          Volver a la pantalla principal
+        </a>
+      </article>
+    </main>
+    <script src="../js/registration.js"></script>
+  </body>
+</html>
