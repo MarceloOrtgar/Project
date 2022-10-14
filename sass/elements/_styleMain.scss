@@ -50,6 +50,8 @@ body {
     align-items: center;
   }
 }
+
+//Mensaje de alerta de vehiculo repetido
 .alertMessage {
   display: none;
 
@@ -102,9 +104,89 @@ body {
   }
 }
 
+//Mensaje de alerta para cerrar sesión
+.exitMessage {
+  display: none;
+
+  &.active {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(21, 23, 24, 0.8);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .exit {
+      display: block;
+      position: fixed;
+      background-color: variables.$ligther;
+      width: 280px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      z-index: 30;
+      border-radius: 1rem;
+      font-size: 0.7em;
+      text-align: center;
+      font
+      &__container {
+        display: flex;
+        justify-content: center;
+        vertical-align: baseline;
+        align-items: center;
+        gap: 1rem;
+      }
+      &__logOut{
+        background-color: variables.$lightgray;
+        border: variables.$border;
+        color: variables.$ligth;
+        border-radius: 1rem;
+        padding: 0.3rem 0.2rem;
+        font-size: 1.2em;
+        text-decoration: none;
+        display: inline-block;
+        height: 100%;
+
+        
+
+
+        cursor: pointer;
+        &:hover {
+          background-color: variables.$ligth;
+          color: variables.$dark;
+        }
+      }
+      &__reject {
+        background-color: variables.$lightgray;
+        border: variables.$border;
+        color: variables.$ligth;
+        border-radius: 1rem;
+        padding: 0.3rem 0.2rem;
+        font-size: 1.2em;
+        height: 100%;
+
+
+        cursor: pointer;
+        &:hover {
+          background-color: variables.$ligth;
+          color: variables.$dark;
+        }
+      }
+    }
+  }
+}
+
 /*Barra Menu*/
 
-.navMain {
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -425,7 +507,7 @@ body {
         }
       }
 
-      &__button {
+      &__buttonlogOut, &__buttonProfile {
         background-color: variables.$ligther;
         color: variables.$dark;
         font-weight: 500;

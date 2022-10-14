@@ -26,57 +26,57 @@
 
 
     <header class="hero__header">
-      <nav class="navMain">
-        <section class="navMain__logoContainer">
+      <nav class="nav">
+        <section class="nav__logoContainer">
           <img
             src="../images/icons8-car-repair-64.png"
             alt="Logo principal"
-            class="navMain__logoContainer__logo"
+            class="nav__logoContainer__logo"
           />
           <h1 class="navMain__logoContainer__text">DevCar</h1>
         </section>
-        <img src="../images/Menu.svg" alt="hamburguer menu" class="navMain__ham" />
+        <img src="../images/Menu.svg" alt="hamburguer menu" class="nav__ham" />
         <img
           src="../images/Close.svg"
           alt="Close hamburguer menu"
-          class="navMain__closeHam"
+          class="nav__closeHam"
         />
 
-        <ul class="navMain__listContainer">
-          <li class="navMain__listContainer__item">
-            <a href="#" class="navMain__listContainer__item__link">Inicio</a>
+        <ul class="nav__listContainer">
+          <li class="nav__listContainer__item">
+            <a href="#" class="nav__listContainer__item__link">Inicio</a>
           </li>
 
-          <li class="navMain__listContainer__item">
-            <a href="#" class="navMain__listContainer__item__link"
+          <li class="nav__listContainer__item">
+            <a href="#" class="nav__listContainer__item__link"
               >Lista de Vehículos</a
             >
-            <ul class="navMain__listContainer__item__categories">
+            <ul class="nav__listContainer__item__categories">
      
             </ul>
           </li>
 
         </ul>
-        <section class="navMain__search">
-          <div class="navMain__search__inputContainer">
+        <section class="nav__search">
+          <div class="nav__search__inputContainer">
             <label
               for="searchCode"
-              class="navMain__search__inputContainer__label"
+              class="nav__search__inputContainer__label"
             >Label</label>
             <input
               type="text"
               name="searchCode"
               id="searchCode"
-              class="navMain__search__inputContainer__input"
+              class="nav__search__inputContainer__input"
               placeholder="Búsqueda...."
               autocomplete="off"
             />
-            <ul class="navMain__search__inputContainer__listSearch"></ul>
+            <ul class="nav__search__inputContainer__listSearch"></ul>
 
             <
           </div>
-          <button class="navMain__search__button">Perfil</button>
-          <button class="navMain__search__button">Salir</button>
+          <a href="profile.html" class="nav__search__buttonProfile">Perfil</a>
+          <button class="nav__search__buttonlogOut">Salir</button>
         </section>
       </nav>
     </header>
@@ -119,9 +119,11 @@
         <p class="footer__conditions__item">Política de privacidad</p>
     </section>
     <section class="footer__socialmedia">
-      <div class="footer__socialmedia__container"><img src="../images/Facebook.svg" alt="Red social Facebook" class="footer__socialmedia__container__image"></div>
-      <div class="footer__socialmedia__container"><img src="../images/Instagram.svg" alt="Red social Instagram" class="footer__socialmedia__container__image"></div>
-      <div class="footer__socialmedia__container"><img src="../images/Twitter.svg" alt="Red social Twitter" class="footer__socialmedia__container__image"></div>
+
+
+      <a href="https://www.facebook.com/marcelo.ortega.33821"><div class="footer__socialmedia__container"><img src="../images/Facebook.svg" alt="Red social Facebook" class="footer__socialmedia__container__image"></div></a>
+      <a href="https://www.instagram.com/marcelortgar/" target="_blank"><div class="footer__socialmedia__container"><img src="../images/Instagram.svg" alt="Red social Instagram" class="footer__socialmedia__container__image"></div></a>
+      <a href="https://twitter.com/OrtgMarcelo" target="_blank"><div class="footer__socialmedia__container"><img src="../images/Twitter.svg" alt="Red social Twitter" class="footer__socialmedia__container__image"></div></a>
     </section>
     <section class="footer__creator">
       <p>© Todos los Derechos Reservados</p>
@@ -138,6 +140,18 @@
         <div class="alert__container">
         <button class="alert__add">Agregar</button>
         <button class="alert__reject">Rechazar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="blockMenu">
+    </div>
+    <div class="exitMessage">
+      <div class="exit">
+        <h2>¿Quieres cerrar la sesión?</h2>
+        <div class="exit__container">
+        <a href="index.html" class="exit__logOut">Cerrar Sesion</a>
+        <button class="exit__reject">Cancelar</button>
         </div>
       </div>
     </div>

@@ -11,9 +11,20 @@ const inputModel = document.querySelector(
   ".hero__search__inputContainer__input"
 );
 
-const buttonRepeatCar = document.querySelector(".alertMessage");
+const containerMessageRepeatCar = document.querySelector(".alertMessage");
 const buttonConfirm = document.querySelector(".alert__add");
 const buttonReject = document.querySelector(".alert__reject");
+
+const showExitMain = document.querySelector(".nav__search__buttonlogOut");
+
+const containerMessageExitMain = document.querySelector(".exitMessage");
+const buttonExit = document.querySelector(".exit__logOut");
+const buttonRejectExit = document.querySelector(".exit__reject");
+
+const buttonLogOut = document.querySelector(".exit__logOut");
+
+const buttonLogOutReject = document.querySelector(".exit__reject");
+
 const templatesearchModels = document.querySelector(
   "#template-categoriesSearchModels"
 ).content;
@@ -103,6 +114,14 @@ const fetchDataModels = async () => {
 window.addEventListener("DOMContentLoaded", async () => {
   const dataModels = await fetchDataModels();
   allData.push(dataModels);
+  allData.forEach((result) => {
+    result.forEach((car) => {
+      car.id = 0;
+      car.oilMotor = "0 Km";
+      car.oilTransmission = "0 Km";
+      car.distribution = "0 Km";
+    });
+  });
 });
 
 //RENDER SEARCH ELEMENTS
@@ -165,7 +184,7 @@ function renderAddCar(match) {
       .querySelector(".card__containerHistory")
       .setAttribute("id", `${cars.id}`);
 
-      clonecarAdd
+    clonecarAdd
       .querySelector(
         ".card__containerHistory__element__inputContainerOilMotor__label"
       )
@@ -184,9 +203,19 @@ function renderAddCar(match) {
     clonecarAdd
       .querySelector(".card__containerHistory__element__changeOilMotor")
       .setAttribute("id", `${cars.id}`);
-    clonecarAdd.querySelector(".card__containerHistory__element__inputContainerTransmissionOil__label").setAttribute("for", `${cars.id}`);
 
     clonecarAdd.querySelector(
+      ".card__containerHistory__element__changeOilMotor"
+    ).textContent = cars.oilMotor;
+
+    clonecarAdd
+      .querySelector(
+        ".card__containerHistory__element__inputContainerTransmissionOil__label"
+      )
+      .setAttribute("for", `${cars.id}`);
+
+    clonecarAdd
+      .querySelector(
         ".card__containerHistory__element__inputContainerTransmissionOil__inputTransmissionOil"
       )
       .setAttribute("id", `${cars.id}`);
@@ -199,7 +228,15 @@ function renderAddCar(match) {
       .querySelector(".card__containerHistory__element__changeTransmissionOil")
       .setAttribute("id", `${cars.id}`);
 
-      clonecarAdd.querySelector(".card__containerHistory__element__inputContainerDistribution__inputDistribution").setAttribute("for", `${cars.id}`);
+    clonecarAdd.querySelector(
+      ".card__containerHistory__element__changeTransmissionOil"
+    ).textContent = cars.oilTransmission;
+
+    clonecarAdd
+      .querySelector(
+        ".card__containerHistory__element__inputContainerDistribution__inputDistribution"
+      )
+      .setAttribute("for", `${cars.id}`);
     clonecarAdd
       .querySelector(
         ".card__containerHistory__element__inputContainerDistribution__inputDistribution"
@@ -213,6 +250,11 @@ function renderAddCar(match) {
     clonecarAdd
       .querySelector(".card__containerHistory__element__changeDistribution")
       .setAttribute("id", `${cars.id}`);
+
+    clonecarAdd.querySelector(
+      ".card__containerHistory__element__changeDistribution"
+    ).textContent = cars.distribution;
+
     fragmentcarAdd.appendChild(clonecarAdd);
   });
   heroCards.appendChild(fragmentcarAdd);
@@ -336,10 +378,14 @@ inputModel.addEventListener("keyup", (e) => {
 
 //Cambiar valores de Kilometrajes para aceite de motor, aceite de transmision y distribucion
 
-function modifyValues (){
+function modifyValues() {
+  console.log(historyCars);
+
   historyCars = document.querySelectorAll(".card__containerHistory");
   historyCars.forEach((history) => {
     history.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
       //Oil Motor
       if (
         e.target.matches(
@@ -347,11 +393,12 @@ function modifyValues (){
         )
       ) {
         e.target.addEventListener("keyup", (e) => {
-          e.stopImmediatePropagation()
+          e.stopImmediatePropagation();
           if (e.target.value.match(regularExpressionNumber)) {
             inputOilMotor = e.target.value.trim();
-          }else{
-            inputOilMotor=0
+            console.log(e.target.id);
+          } else {
+            inputOilMotor = 0;
           }
         });
       }
@@ -359,18 +406,23 @@ function modifyValues (){
         e.target.matches(
           ".card__containerHistory__element__inputContainerOilMotor__buttonOilMotor"
         )
-      ) 
-       {
+      ) {
         changeOilCars = document.querySelectorAll(
           ".card__containerHistory__element__changeOilMotor"
         );
-        if(inputOilMotor===undefined){
-          inputOilMotor=0
+        if (inputOilMotor === undefined) {
+          inputOilMotor = 0;
         }
         e.target.addEventListener("click", (e) => {
           changeOilCars.forEach((changeCar) => {
             if (changeCar.id.match(history.id)) {
               changeCar.textContent = `${inputOilMotor} Km`;
+
+              listCards.forEach((car) => {
+                if (changeCar.id.match(car.id)) {
+                  car.oilMotor = `${inputOilMotor} Km`;
+                }
+              });
             }
           });
         });
@@ -385,8 +437,8 @@ function modifyValues (){
         e.target.addEventListener("keyup", (e) => {
           if (e.target.value.match(regularExpressionNumber)) {
             inputTransmissionOil = e.target.value.trim();
-          }else{
-            inputTransmissionOil=0
+          } else {
+            inputTransmissionOil = 0;
           }
         });
       }
@@ -398,13 +450,19 @@ function modifyValues (){
         changeTransmissionOil = document.querySelectorAll(
           ".card__containerHistory__element__changeTransmissionOil"
         );
-        if(inputTransmissionOil===undefined){
-          inputTransmissionOil=0
+        if (inputTransmissionOil === undefined) {
+          inputTransmissionOil = 0;
         }
         e.target.addEventListener("click", (e) => {
           changeTransmissionOil.forEach((changeCar) => {
             if (changeCar.id.match(history.id)) {
               changeCar.textContent = `${inputTransmissionOil} Km`;
+
+              listCards.forEach((car) => {
+                if (changeCar.id.match(car.id)) {
+                  car.oilTransmission = `${inputTransmissionOil} Km`;
+                }
+              });
             }
           });
         });
@@ -419,8 +477,8 @@ function modifyValues (){
         e.target.addEventListener("keyup", (e) => {
           if (e.target.value.match(regularExpressionNumber)) {
             inputDistribution = e.target.value.trim();
-          }else{
-            inputDistribution=0
+          } else {
+            inputDistribution = 0;
           }
         });
       }
@@ -432,13 +490,19 @@ function modifyValues (){
         changeDistribution = document.querySelectorAll(
           ".card__containerHistory__element__changeDistribution"
         );
-        if(inputDistribution===undefined){
-          inputDistribution=0
+        if (inputDistribution === undefined) {
+          inputDistribution = 0;
         }
         e.target.addEventListener("click", (e) => {
           changeDistribution.forEach((changeCar) => {
             if (changeCar.id.match(history.id)) {
               changeCar.textContent = `${inputDistribution} Km`;
+
+              listCards.forEach((car) => {
+                if (changeCar.id.match(car.id)) {
+                  car.distribution = `${inputDistribution} Km`;
+                }
+              });
             }
           });
         });
@@ -447,12 +511,18 @@ function modifyValues (){
   });
 }
 
-
 //Evento en el Objeto Window
 
 document.addEventListener("click", (e) => {
-  e.preventDefault();
-  e.stopPropagation();
+
+
+  if (e.target.matches(".nav__search__buttonlogOut")) {
+    containerMessageExitMain.classList.add("active");
+
+    containerMessageExitMain.addEventListener("click", (e) => {
+      containerMessageExitMain.classList.remove("active");
+    });
+  }
 
   //Muestra los elementos coincidentes en el input de Busqueda
   if (
@@ -479,11 +549,12 @@ Consulta si hay elementos repetidos
     lastCard = listCards[listCards.length - 1];
     renderAddCar(listCards);
     renderlistCars(listCards);
-    modifyValues()
-    
+    modifyValues();
   }
 
   if (e.target.matches(".hero__search__inputContainer__button")) {
+    e.preventDefault();
+    e.stopPropagation();
     if (inputModel.value.trim() === "" || matchesInput.length < 1) {
       return;
     } else {
@@ -502,7 +573,7 @@ Consulta si hay elementos repetidos
         }
       });
       if (condicional) {
-        buttonRepeatCar.classList.add("active");
+        containerMessageRepeatCar.classList.add("active");
 
         buttonConfirm.addEventListener("click", (event) => {
           event.stopImmediatePropagation();
@@ -512,14 +583,14 @@ Consulta si hay elementos repetidos
           lastCard = listCards[listCards.length - 1];
           renderAddCar(listCards);
           renderlistCars(listCards);
-          buttonRepeatCar.classList.remove("active");
+          containerMessageRepeatCar.classList.remove("active");
           listSearch.classList.remove("active");
           historyCars = document.querySelectorAll(".card__containerHistory");
-          modifyValues()
+          modifyValues();
         });
 
         buttonReject.addEventListener("click", (e) => {
-          buttonRepeatCar.classList.remove("active");
+          containerMessageRepeatCar.classList.remove("active");
         });
       } else {
         matchCopy = Object.assign({}, matchesInput[0]);
@@ -529,8 +600,7 @@ Consulta si hay elementos repetidos
         renderAddCar(listCards);
         renderlistCars(listCards);
         listSearch.classList.remove("active");
-        modifyValues()
-
+        modifyValues();
       }
     }
   } else {
@@ -547,6 +617,9 @@ Consulta si hay elementos repetidos
       renderSearchElements(matchesInput);
       listSearch.classList.remove("active");
     }
+  }
+
+  if (e.target.matches(".exit__logOut")) {
   }
 });
 
