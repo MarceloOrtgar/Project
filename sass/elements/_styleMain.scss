@@ -325,7 +325,7 @@ body {
           color: variables.$ligth;
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
           position: relative;
-          top: 00px;
+          top: 0;
           left: 50px;
           right: 0;
           padding: 0.5rem 0;
@@ -382,7 +382,7 @@ body {
             &__link {
               color: variables.$ligther;
               width: 100%;
-              transition: all 300ms ease;
+              transition: all 200ms ease-in-out;
               display: block;
 
               &:hover {
@@ -394,7 +394,7 @@ body {
           }
         }
 
-        &:hover .nav__listContainer__item__categories {
+        &:hover .nav__listContainer__item__categories.active {
           visibility: visible;
           opacity: 1;
           top: 10px;
@@ -507,7 +507,7 @@ body {
         }
       }
 
-      &__buttonlogOut, &__buttonProfile {
+      &__buttonlogOut {
         background-color: variables.$ligther;
         color: variables.$dark;
         font-weight: 500;
@@ -515,6 +515,32 @@ body {
         padding: 0.4rem 0.8rem;
         border: none;
         font-family: variables.$font-family;
+        font-size: 0.8em;
+
+
+        cursor: pointer;
+
+        &:hover {
+          background-color: variables.$dark;
+          color: variables.$ligther;
+        }
+        @media (max-width: 768px) {
+          width: 75px;
+          padding: 0.2rem 0.4rem;
+        }
+      }
+
+      &__buttonProfile {
+        background-color: variables.$ligther;
+        color: variables.$dark;
+        font-weight: 500;
+        border-radius: 1rem;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.8em;
+        border: none;
+        font-family: variables.$font-family;
+        text-decoration: none;
+        text-align: center;
 
         cursor: pointer;
 

@@ -11,6 +11,8 @@ const inputModel = document.querySelector(
   ".hero__search__inputContainer__input"
 );
 
+const menuDisplayElement=document.querySelector(".nav__listContainer__item__categories")
+
 const containerMessageRepeatCar = document.querySelector(".alertMessage");
 const buttonConfirm = document.querySelector(".alert__add");
 const buttonReject = document.querySelector(".alert__reject");
@@ -309,7 +311,7 @@ menuHam.addEventListener("click", (e) => {
   blockMenu.classList.add("active");
 });
 
-//DCERRAR MENU MOBILE
+//CERRAR MENU MOBILE
 closeHam.addEventListener("click", (e) => {
   closeHam.classList.remove("active");
   linksMenu.classList.remove("active");
@@ -379,7 +381,7 @@ inputModel.addEventListener("keyup", (e) => {
 //Cambiar valores de Kilometrajes para aceite de motor, aceite de transmision y distribucion
 
 function modifyValues() {
-  console.log(historyCars);
+
 
   historyCars = document.querySelectorAll(".card__containerHistory");
   historyCars.forEach((history) => {
@@ -511,9 +513,30 @@ function modifyValues() {
   });
 }
 
+// Deshabilitar menu desplegado sino hay vehiculos en la lista
+
+function disableList(listCards){
+  if(listCards.length>=1){
+    menuDisplayElement.classList.add("active")
+  }else{
+    menuDisplayElement.classList.remove("active")
+  }
+  
+}
+
+
+
 //Evento en el Objeto Window
 
+
 document.addEventListener("click", (e) => {
+
+  if(e.target.matches(".nav__listContainer__item__categories__element__link")){
+    closeHam.classList.remove("active");
+    linksMenu.classList.remove("active");
+    menuHam.classList.remove("active");
+    blockMenu.classList.remove("active");
+  }
 
 
   if (e.target.matches(".nav__search__buttonlogOut")) {
@@ -550,6 +573,8 @@ Consulta si hay elementos repetidos
     renderAddCar(listCards);
     renderlistCars(listCards);
     modifyValues();
+    disableList(listCards)
+    
   }
 
   if (e.target.matches(".hero__search__inputContainer__button")) {
@@ -587,6 +612,7 @@ Consulta si hay elementos repetidos
           listSearch.classList.remove("active");
           historyCars = document.querySelectorAll(".card__containerHistory");
           modifyValues();
+          disableList(listCards)
         });
 
         buttonReject.addEventListener("click", (e) => {
@@ -601,6 +627,7 @@ Consulta si hay elementos repetidos
         renderlistCars(listCards);
         listSearch.classList.remove("active");
         modifyValues();
+        disableList(listCards)
       }
     }
   } else {

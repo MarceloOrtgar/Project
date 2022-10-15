@@ -305,7 +305,7 @@ font .exitMessage.active .exit__container {
   color: #f4f4f4;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
   position: relative;
-  top: 0px;
+  top: 0;
   left: 50px;
   right: 0;
   padding: 0.5rem 0;
@@ -362,7 +362,7 @@ font .exitMessage.active .exit__container {
 .nav__listContainer__item__categories__categoryContainer__link {
   color: #dedede;
   width: 100%;
-  transition: all 300ms ease;
+  transition: all 200ms ease-in-out;
   display: block;
 }
 .nav__listContainer__item__categories__categoryContainer__link:hover {
@@ -370,14 +370,14 @@ font .exitMessage.active .exit__container {
   color: #252827;
   transform: scale(0.95);
 }
-.nav__listContainer__item:hover .nav__listContainer__item__categories {
+.nav__listContainer__item:hover .nav__listContainer__item__categories.active {
   visibility: visible;
   opacity: 1;
   top: 10px;
   left: 0;
 }
 @media (max-width: 768px) {
-  .nav__listContainer__item:hover .nav__listContainer__item__categories {
+  .nav__listContainer__item:hover .nav__listContainer__item__categories.active {
     top: -35px;
     left: 95%;
   }
@@ -474,7 +474,7 @@ font .exitMessage.active .exit__container {
   color: #dedede;
   transform: scale(0.95);
 }
-.nav__search__buttonlogOut, .nav__search__buttonProfile {
+.nav__search__buttonlogOut {
   background-color: #dedede;
   color: #252827;
   font-weight: 500;
@@ -482,14 +482,38 @@ font .exitMessage.active .exit__container {
   padding: 0.4rem 0.8rem;
   border: none;
   font-family: "Lato", sans-serif;
+  font-size: 0.8em;
   cursor: pointer;
 }
-.nav__search__buttonlogOut:hover, .nav__search__buttonProfile:hover {
+.nav__search__buttonlogOut:hover {
   background-color: #252827;
   color: #dedede;
 }
 @media (max-width: 768px) {
-  .nav__search__buttonlogOut, .nav__search__buttonProfile {
+  .nav__search__buttonlogOut {
+    width: 75px;
+    padding: 0.2rem 0.4rem;
+  }
+}
+.nav__search__buttonProfile {
+  background-color: #dedede;
+  color: #252827;
+  font-weight: 500;
+  border-radius: 1rem;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.8em;
+  border: none;
+  font-family: "Lato", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.nav__search__buttonProfile:hover {
+  background-color: #252827;
+  color: #dedede;
+}
+@media (max-width: 768px) {
+  .nav__search__buttonProfile {
     width: 75px;
     padding: 0.2rem 0.4rem;
   }
@@ -1261,7 +1285,6 @@ video {
 .signIn.disable {
   position: absolute;
   right: -200%;
-  display: none;
 }
 
 * {
@@ -1441,6 +1464,260 @@ video {
   font-weight: 200;
   text-decoration: none;
   margin-top: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  min-width: 375px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgb(222, 222, 222) 0%, rgb(244, 244, 244) 10%, rgb(244, 244, 244) 90%, rgb(222, 222, 222) 100%);
+}
+body::-webkit-scrollbar {
+  width: 4px;
+}
+body::-webkit-scrollbar-thumb {
+  width: 2.5px;
+  height: 50px;
+  background-color: #252827;
+  border-radius: 5px;
+}
+
+.navProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1.8rem;
+  width: 100%;
+  height: 100%;
+}
+@media (max-width: 768px) {
+  .navProfile {
+    padding: 0;
+    gap: 1rem;
+  }
+}
+.navProfile__logoContainer {
+  display: flex;
+  align-items: center;
+}
+.navProfile__logoContainer__logo {
+  width: 50px;
+}
+@media (max-width: 768px) {
+  .navProfile__logoContainer__logo {
+    width: 30px;
+  }
+}
+.navProfile__text {
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+  font-size: 2em;
+}
+@media (max-width: 768px) {
+  .navProfile__text {
+    font-size: 1em;
+  }
+}
+.navProfile__search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+@media (max-width: 768px) {
+  .navProfile__search {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+.navProfile__search__buttonSign, .navProfile__search__buttonRegistration {
+  background-color: #dedede;
+  color: #252827;
+  font-weight: 500;
+  border-radius: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  font-family: "Lato", sans-serif;
+  cursor: pointer;
+  transition: background-color 300ms ease;
+  text-decoration: none;
+  height: 25px;
+  display: block;
+  font-size: 0.8em;
+}
+.navProfile__search__buttonSign:hover, .navProfile__search__buttonRegistration:hover {
+  background-color: #252827;
+  color: #dedede;
+}
+@media (max-width: 768px) {
+  .navProfile__search__buttonSign, .navProfile__search__buttonRegistration {
+    padding: 0.2rem 0.4rem;
+  }
+}
+
+.heroContainerProfile {
+  width: 80%;
+  display: flex;
+  gap: 2rem;
+  margin: auto;
+}
+@media (max-width: 768px) {
+  .heroContainerProfile {
+    flex-direction: column;
+  }
+}
+.heroContainerProfile__aside {
+  min-height: 450px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #252827;
+  padding: 1.5rem;
+  border-radius: 2rem;
+  color: white;
+}
+.heroContainerProfile__aside__img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+.heroContainerProfile__aside__text {
+  text-align: center;
+}
+.heroContainerProfile__aside__list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.heroContainerProfile__aside__list__element {
+  list-style: none;
+}
+.heroContainerProfile__aside__list__element__image {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+.heroContainerProfile__aside__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.heroContainerProfile__aside__form__label {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.heroContainerProfile__aside__form__input {
+  background-color: #dedede;
+  border: 0.1rem solid #dedede;
+  color: #252827;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  transform: scale(1);
+  transition: transform 200ms ease;
+  width: 250px;
+  margin: auto;
+}
+.heroContainerProfile__aside__form__input:focus {
+  box-shadow: 0px 0px 6px 2px #353a3b;
+  outline: none;
+  transform: scale(0.95);
+}
+.heroContainerProfile__aside__form__alert {
+  color: rgb(202, 49, 49);
+  font-size: 0.8em;
+  text-align: center;
+}
+.heroContainerProfile__aside__form__alert__username, .heroContainerProfile__aside__form__alert__name {
+  opacity: 0;
+  transition: opacity 200ms ease;
+  margin-top: 0.5rem;
+}
+.heroContainerProfile__aside__form__alert__username.active, .heroContainerProfile__aside__form__alert__name.active {
+  opacity: 1;
+}
+.heroContainerProfile__aside__form__button {
+  background-color: #dedede;
+  border: 0.1rem solid #dedede;
+  color: #252827;
+  text-align: center;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  width: 100px;
+  margin: auto;
+  cursor: pointer;
+}
+.heroContainerProfile__aside__form__button:hover {
+  background-color: #252827;
+  color: #dedede;
+}
+.heroContainerProfile__aside__form__carsBrands {
+  background-color: #353a3b;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  width: 250px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: auto;
+  gap: 1rem;
+  padding: 0.5rem;
+}
+.heroContainerProfile__aside__form__carsBrands::-webkit-scrollbar {
+  width: 3.5px;
+}
+.heroContainerProfile__aside__form__carsBrands::-webkit-scrollbar-thumb {
+  background-color: #f4f4f4;
+  border-radius: 2px;
+}
+.heroContainerProfile__aside__form__carsBrands__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bolder;
+}
+.heroContainerProfile__aside__form__carsBrands__container__ImgText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.heroContainerProfile__aside__form__carsBrands__container__Img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.heroContainerProfile__aside__form__search {
+  display: flex;
+  gap: 1rem;
+  margin: auto;
+}
+.heroContainerProfile__aside__form__search__input {
+  background-color: #dedede;
+  border: 0.1rem solid #dedede;
+  width: 50%;
+  border-radius: 0.4rem;
+  transition: width 250ms ease;
+}
+.heroContainerProfile__aside__form__search__input:focus {
+  box-shadow: 0px 0px 6px 2px #353a3b;
+  outline: none;
+  width: 80%;
 }
 
 /*# sourceMappingURL=main.css.map */

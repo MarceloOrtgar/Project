@@ -1,0 +1,285 @@
+@use "variables";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: variables.$font-family;
+  min-width: 375px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0deg,
+    rgba(222, 222, 222, 1) 0%,
+    rgba(244, 244, 244, 1) 10%,
+    rgba(244, 244, 244, 1) 90%,
+    rgba(222, 222, 222, 1) 100%
+  );
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 2.5px;
+    height: 50px;
+    background-color: variables.$dark;
+    border-radius: 5px;
+  }
+}
+
+.navProfile {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1.8rem;
+  width: 100%;
+  height: 100%;
+
+  @media (max-width: 768px) {
+    padding: 0;
+    gap: 1rem;
+  }
+
+  & {
+    &__logoContainer {
+      display: flex;
+      align-items: center;
+      &__logo {
+        width: 50px;
+        @media (max-width: 768px) {
+          width: 30px;
+        }
+      }
+    }
+
+    &__text {
+      width: 100%;
+      text-align: center;
+      font-weight: 800;
+      font-size: 2em;
+
+      @media (max-width: 768px) {
+        font-size: 1em;
+      }
+    }
+
+    &__search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      &__buttonSign, &__buttonRegistration {
+        background-color: variables.$ligther;
+        color: variables.$dark;
+        font-weight: 500;
+        border-radius: 1rem;
+        padding: 0.4rem 0.8rem;
+        border: none;
+        font-family: variables.$font-family;
+        cursor: pointer;
+        transition: background-color 300ms ease;
+        text-decoration: none;
+        height: 25px;
+        display: block;
+        font-size: 0.8em;
+
+        &:hover {
+          background-color: variables.$dark;
+          color: variables.$ligther;
+        }
+        @media (max-width: 768px) {
+
+          padding: 0.2rem 0.4rem;
+        }
+      }
+    }
+  }
+}
+
+.heroContainerProfile {
+  width: 80%;
+  display: flex;
+  gap: 2rem;
+  margin: auto;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  &__aside {
+    min-height: 450px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: variables.$dark;
+    padding: 1.5rem;
+    border-radius: 2rem;
+    color: white;
+
+    &__img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+    }
+    &__text {
+      text-align: center;
+    }
+    &__list {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      &__element {
+        list-style: none;
+        &__image {
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__label{
+        font-size: 1.5em;
+        font-weight: bold;
+      }
+
+      &__input{
+        background-color: variables.$ligther;
+        border: variables.$border;
+        color: variables.$dark;
+        text-align: center;
+        border-radius: 1rem;
+        padding: 0.2rem;
+        transform: scale(1);
+        transition: transform 200ms ease;
+        width: 250px;
+        margin: auto;
+
+        &:focus {
+          box-shadow: 0px 0px 6px 2px variables.$lightgray;
+          outline: none;
+          transform: scale(0.95);
+        }
+      }
+
+      &__alert{
+        color: rgb(202, 49, 49);
+        font-size: 0.8em;
+        text-align: center;
+        &__username, &__name{
+          opacity: 0;
+          transition: opacity 200ms ease;
+          margin-top: 0.5rem;
+
+          &.active {
+            opacity: 1;
+
+          }
+        }
+      }
+
+      &__button{
+        background-color: variables.$ligther;
+          border: variables.$border;
+          color: variables.$dark;
+          text-align: center;
+          border-radius: 1rem;
+          padding: 0.2rem;
+          width: 100px;
+          margin: auto;
+          cursor: pointer;
+          &:hover {
+            background-color: variables.$dark;
+            color: variables.$ligther;
+          }
+      }
+
+      &__carsBrands{
+        background-color: variables.$lightgray;
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        width: 250px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        margin: auto;
+        gap: 1rem;
+        padding: 0.5rem;
+        &::-webkit-scrollbar {
+          width: 3.5px;
+
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: variables.$ligth;
+          border-radius: 2px;
+        }
+
+        &__container{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 0.5rem;
+          font-weight: bolder;
+          
+          &__ImgText{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+
+          }
+
+          &__Img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      &__search{
+        display: flex;
+        gap: 1rem;
+        margin: auto;
+        
+        &__input{
+          background-color: variables.$ligther;
+          border: variables.$border;
+          width: 50%;
+          border-radius: 0.4rem;
+          transition: width 250ms ease;
+          &:focus {
+            box-shadow: 0px 0px 6px 2px variables.$lightgray;
+            outline: none;
+            width: 80%;
+          }
+        }
+      }
+
+
+    }
+  }
+}

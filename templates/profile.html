@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,8 +12,170 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
       rel="stylesheet"
-</head>
-<body>
-    
-</body>
+    />
+  </head>
+  <body>
+    <section class="loading">
+      <div class="loading__container">
+        <div class="loading__container__ring"></div>
+        <div class="loading__container__ring"></div>
+        <div class="loading__container__ring"></div>
+        <span class="loading__text">Cargando...</span>
+      </div>
+    </section>
+
+    <header class="heroIndex__header">
+      <nav class="navProfile">
+        <section class="navProfile__logoContainer">
+          <img
+            src="../images/icons8-car-repair-64.png"
+            alt="Logo principal"
+            class="navProfile__logoContainer__logo"
+          />
+          <h1 class="navProfile__logoContainer__text">DevCar</h1>
+        </section>
+
+        <section class="navProfile__search">
+          <a href="main.html" class="navProfile__search__buttonRegistration"
+            >Volver a tu registro vehicular</a
+          >
+        </section>
+      </nav>
+    </header>
+
+    <h1 class="title">Perfil del usuario</h1>
+    <main class="heroContainerProfile">
+      <aside class="heroContainerProfile__aside">
+        <img
+          src="../images/Profile.jpg"
+          alt="profile picture"
+          class="heroContainerProfile__aside__img"
+        />
+        <h2 class="heroContainerProfile__aside__text">
+          Nombre: Marcelo Ortega
+        </h2>
+        <h2 class="heroContainerProfile__aside__text">
+          Username: MarceloOrtgar
+        </h2>
+        <h2 class="heroContainerProfile__aside__text">
+          Marcas de vehículos favoritas
+        </h2>
+        <ul class="heroContainerProfile__aside__list"></ul>
+      </aside>
+      <aside class="heroContainerProfile__aside">
+        <form class="heroContainerProfile__aside__form">
+          <label for="name" class="heroContainerProfile__aside__form__label"
+            >Nombre y Apellido</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="heroContainerProfile__aside__form__input"
+            autocomplete="off"
+          />
+
+          <div class="heroContainerProfile__aside__form__alert">
+            <h3 class="heroContainerProfile__aside__form__alert__name">
+              Campo no válido
+            </h3>
+          </div>
+
+          <label for="name" class="heroContainerProfile__aside__form__label"
+            >Username</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="heroContainerProfile__aside__form__input"
+            autocomplete="off"
+          />
+          <div class="heroContainerProfile__aside__form__alert">
+            <h3 class="heroContainerProfile__aside__form__alert__username">
+              Campo no válido
+            </h3>
+          </div>
+
+          <h2 class="heroContainerProfile__aside__form__text">
+            Seleccione las marcas de vehículos favoritas
+          </h2>
+          <div class="heroContainerProfile__aside__form__search">
+            <label
+              for="search"
+              class="heroContainerProfile__aside__form__search_label"
+              >Buscador</label
+            >
+            <input
+              type="text"
+              name="search"
+              id="search"
+              class="heroContainerProfile__aside__form__search__input"
+              autocomplete="off"
+            />
+          </div>
+          <div class="heroContainerProfile__aside__form__carsBrands">
+            <div
+              class="heroContainerProfile__aside__form__carsBrands__container"
+            >
+              <label
+                class="heroContainerProfile__aside__form__labelCheck"
+                for="toyota"
+                >Toyota</label
+              >
+              <input
+                type="checkbox"
+                id="toyota"
+                value="first_checkbox"
+                class="heroContainerProfile__aside__form__checkbox"
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="heroContainerProfile__aside__form__button"
+          >
+            Actualizar
+          </button>
+        </form>
+      </aside>
+    </main>
+
+    <template id="template-carsBrands">
+      <div class="heroContainerProfile__aside__form__carsBrands__container">
+        <div
+          class="heroContainerProfile__aside__form__carsBrands__container__ImgText"
+        >
+          <img
+            src="../images/toyota.jpg"
+            alt="Marca toyota"
+            class="heroContainerProfile__aside__form__carsBrands__container__Img"
+          />
+          <label
+            class="heroContainerProfile__aside__form__carsBrands__container__labelCheck"
+          >
+            Toyota</label
+          >
+        </div>
+        <input
+          type="checkbox"
+          id="cbox1"
+          value="first_checkbox"
+          class="heroContainerProfile__aside__form__carsBrands__container__checkbox"
+        />
+      </div>
+    </template>
+
+    <template id="template-favoriteBrands">
+      <li class="heroContainerProfile__aside__list__element">
+        <img
+          src="../images/fiat.jpg"
+          alt="Marca de vehiculo fiat"
+          class="heroContainerProfile__aside__list__element__image"
+        />
+      </li>
+    </template>
+
+    <script type="module" src="../js/profile.js"></script>
+  </body>
 </html>
