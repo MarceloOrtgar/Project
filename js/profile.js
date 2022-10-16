@@ -19,9 +19,7 @@ setTimeout(() => {
   const userInputs = document.querySelectorAll(
     ".heroContainerProfile__aside__form__input"
   );
-  const button = document.querySelector(
-    ".heroContainerProfile__aside__form__button"
-  );
+
   const errorName = document.querySelector(
     ".heroContainerProfile__aside__form__alert__name"
   );
@@ -105,7 +103,6 @@ setTimeout(() => {
     listBrands.forEach((brand) => {
       elementChecked.forEach((brandcheck) => {
         if (brand.id === brandcheck) {
-          console.log("confirmo");
           brand.checked = true;
         }
       });
@@ -122,47 +119,6 @@ setTimeout(() => {
   //Toma del valor introducido en el input username
   userInputs[1].addEventListener("keyup", (e) => {
     inputValueUsername = e.target.value.trim();
-  });
-
-  button.addEventListener("click", (e) => {
-    e.preventDefault();
-    errorName.classList.remove("active");
-    errorUsername.classList.remove("active");
-
-    if (
-      regularExpressionName.test(inputValueName) &&
-      regularExpressionUsername.test(inputValueUsername) &&
-      inputValueName != undefined &&
-      inputValueUsername != undefined
-    ) {
-      userData[0].textContent = `Nombre: ${inputValueName}`;
-      userData[1].textContent = `Username: ${inputValueUsername}`;
-      showFavoriteBrandsCars(elementChecked);
-      userInputs[0].value=""
-      userInputs[1].value=""
-      elementChecked=[]
-      searchBrands.value="";
-      listBrands = document.querySelectorAll(".heroContainerProfile__aside__form__carsBrands__container__checkbox")
-      listBrands.forEach(brand=>{
-        brand.checked=false
-      })
-
-    } else {
-      if (
-        !regularExpressionName.test(inputValueName) ||
-        inputValueName == undefined
-      ) {
-        errorName.classList.add("active");
-      }
-      if (
-        !regularExpressionUsername.test(inputValueUsername) ||
-        inputValueUsername == undefined
-      ) {
-        errorUsername.classList.add("active");
-      }
-    }
-
-
   });
 
   //Mostrar lista de marcas de vehículos
@@ -277,6 +233,51 @@ setTimeout(() => {
         });
       }
     }
+
+
+    if(e.target.matches(".heroContainerProfile__aside__form__button")){
+      e.preventDefault();
+    errorName.classList.remove("active");
+    errorUsername.classList.remove("active");
+  
+      if (
+        regularExpressionName.test(inputValueName) &&
+        regularExpressionUsername.test(inputValueUsername) &&
+        inputValueName != undefined &&
+        inputValueUsername != undefined
+      ) {
+        userData[0].textContent = `Nombre: ${inputValueName}`;
+        userData[1].textContent = `Username: ${inputValueUsername}`;
+        showFavoriteBrandsCars(elementChecked);
+        userInputs[0].value=""
+        userInputs[1].value=""
+        elementChecked=[]
+        searchBrands.value="";
+        listBrands = document.querySelectorAll(".heroContainerProfile__aside__form__carsBrands__container__checkbox")
+        listBrands.forEach(brand=>{
+          brand.checked=false
+        })
+        inputValueName=undefined
+        inputValueUsername=undefined
+        showListBrandsCars(data);
+      } else {
+        brandsChecked();
+        if (
+          !regularExpressionName.test(inputValueName) ||
+          inputValueName == undefined
+        ) {
+          errorName.classList.add("active");
+        }
+        if (
+          !regularExpressionUsername.test(inputValueUsername) ||
+          inputValueUsername == undefined
+        ) {
+          errorUsername.classList.add("active");
+        }
+      }
+  
+    }
+
   });
 
   loadingData(false);

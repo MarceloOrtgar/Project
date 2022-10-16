@@ -108,7 +108,10 @@
         <ul class="hero__search__inputContainer__listSearch"></ul>
       </form>
 
-      <section class="hero__cards"></section>
+      <section class="hero__cards">
+       
+
+      </section>
     </main>
 
     
@@ -202,15 +205,104 @@
 
         <section class="card__containerText">
           <h2 class="card__containerText__details">Especificaciones</h2>
-          <h3 class="card__containerText__model">Mazda 3</h3>
-          <h3 class="card__containerText__transmission">
-            Transmisión Automática
+          <h3 class="card__containerText__model">Modelo: Mazda 3</h3>
+          <div class="card__containerText__containerTransmission">
+            <h3 class="card__containerText__containerTransmission__text">
+            Transmisión es: xxxxxxxx
           </h3>
-          <h3 class="card__containerText__fuel">Gasolina</h3>
-          <h3 class="card__containerText__engineOil">Aceite de motor: 20w50</h3>
-          <h3 class="card__containerText__transmissionOil">
-            Aceite de transmisión: Mopar 80w-90
-          </h3>
+              <div class="card__containerText__containerTransmission__containerTextInput">
+                <label for="transmisiónModel" class="card__containerText__containerTransmission__labelTransmission">Selecciona la transmisión de tu vehículo:</label>
+
+                <select name="transmisiónModel" id="transmisiónModel" class="card__containerText__containerTransmission__containerTextInput__inputTransmission">
+                    <option value="manual">Manual</option>
+                    <option value="automatico">Automático</option>
+                    <option value="automaticocvt">Automático CVT</option>
+  
+                </select>
+              </div>
+              <button
+              type="submit"
+              class="card__containerText__containerTransmission__buttonTransmission"
+            >
+              Agregar
+            </button>
+        </div>
+        <div class="card__containerText__containerfuel">
+          <h3 class="card__containerText__containerfuel__text">
+          Combustible es: xxxxxxxx
+        </h3>
+       
+
+            <div class="card__containerText__containerfuel__containerTextInput">
+              <label for="transmisiónModel" class="card__containerText__containerfuel__containerTextInput__labelfuel">Seleccione el combustible del vehículo:</label>
+
+              <select name="fuel" id="fuel" class="card__containerText__containerfuel__containerTextInput__inputFuel">
+                  <option value="nafta">Nafta</option>
+                  <option value="diesel">Diesel</option>
+                  <option value="hibrido">Híbrido</option>
+                  <option value="electrico">Eléctrico</option>
+
+              </select>
+            </div>
+            <button
+            type="submit"
+            class="card__containerText__containerfuel__buttonFuel"
+          >
+            Agregar
+          </button>
+      </div>
+      <div class="card__containerText__containerEngineOil">
+        <h3 class="card__containerText__containerEngineOil__text">
+          Aceite de motor: xxxxxxx
+      </h3>
+      <label
+            for="oilMotor"
+            class="card__containerText__containerEngineOil__labelEngineOil"
+          >Establezca el último tipo de aceite utilizado</label>
+          <div class="card__containerText__containerEngineOil__containerInputButton">
+          <input
+            type="text"
+            name="oilMotor"
+            id="oilMotor"
+            class="card__containerText__containerEngineOil__containerInputButton__inputEngineOil"
+            placeholder="Tipo de aceite de motor"
+            autocomplete="off"
+          />
+          <button
+            type="submit"
+            class="card__containerText__containerEngineOil__containerInputButton__buttonEngineOil"
+          >
+            Agregar
+          </button>
+          </div>
+    </div>
+    <div class="card__containerText__containerTransmissionOil">
+      <h3 class="card__containerText__containerTransmissionOil__text">
+        Aceite de transmisión: xxxxxxx
+    </h3>
+    <label
+          for="transmissionOil"
+          class="card__containerText__containerTransmissionOil__labelTransmissionOil"
+        >Establezca el último tipo de aceite utilizado</label>
+        <div class="card__containerText__containerTransmissionOil__containerInputButton">
+        <input
+          type="text"
+          name="transmissionOil"
+          id="transmissionOil"
+          class="card__containerText__containerTransmissionOil__containerInputButton__inputTransmissionOil"
+          placeholder="Tipo de aceite de motor"
+          autocomplete="off"
+        />
+        <button
+          type="submit"
+          class="card__containerText__containerTransmissionOil__containerInputButton__buttonTransmissionOil"
+        >
+          Agregar
+        </button>
+        </div>
+  </div>
+    
+
         </section>
 
         <section class="card__containerHistory">

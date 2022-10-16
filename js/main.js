@@ -11,7 +11,9 @@ const inputModel = document.querySelector(
   ".hero__search__inputContainer__input"
 );
 
-const menuDisplayElement=document.querySelector(".nav__listContainer__item__categories")
+const menuDisplayElement = document.querySelector(
+  ".nav__listContainer__item__categories"
+);
 
 const containerMessageRepeatCar = document.querySelector(".alertMessage");
 const buttonConfirm = document.querySelector(".alert__add");
@@ -56,6 +58,25 @@ let changeDistribution = document.querySelectorAll(
   ".card__containerHistory__element__changeDistribution"
 );
 
+let carsModel = document.querySelectorAll(".card__containerText");
+
+let selectTransmissionModel = document.querySelectorAll(".card__containerText");
+
+let changeTransmissionModel = document.querySelectorAll(
+  ".card__containerText__containerTransmission__text"
+);
+
+let changeFuelModel = document.querySelectorAll(
+  ".card__containerText__containerfuel__text"
+);
+
+let changeEngineOil = document.querySelectorAll(
+  ".card__containerText__containerEngineOil__text"
+);
+
+let changeTransmissionOilModel = document.querySelectorAll(
+  ".card__containerText__containerEngineOil__text"
+);
 //DECLARACION DE VARIABLES FUNCIONALIDAD DATA
 
 let idCounter = 0; // Id de las tarjetas
@@ -71,7 +92,13 @@ let lastCard; //Comparador para conocer si el vehiculo se repite
 let inputOilMotor; //input del historial OilMotor
 let inputTransmissionOil; //input del historial OilMotor
 let inputDistribution; //input del historial OilMotor
+let inputTransmissionModel; //Input del tipo de transmision del modelo de vehiculo
+let inputOilMotorModel; // Input del tipo de aceite de motor del modelo de vehiculo
+let inputOilTransmissionModel; // Input del tipo de transmision del modelo de vehiculo
+let inputFuelModel; // Inputl del combustible del modelo de vehiculo
+
 const regularExpressionNumber = /^[0-9]{1,7}$/; //Expresion regular para validar solo numeros
+const regularExpressionString = /^[A-Za-z]*/;
 
 //  INICIO ----- DATA-FETCH - IMPRESION DE LA DATA EN EL HTML
 
@@ -122,6 +149,10 @@ window.addEventListener("DOMContentLoaded", async () => {
       car.oilMotor = "0 Km";
       car.oilTransmission = "0 Km";
       car.distribution = "0 Km";
+      car.transmissionModel = "xxxxxx";
+      car.oilMotorModel = "xxxxxx";
+      car.oilTransmissionModel = "xxxxxx";
+      car.fuel = "xxxxxx";
     });
   });
 });
@@ -162,6 +193,7 @@ const renderSearchElements = (match) => {
 function renderAddCar(match) {
   heroCards.textContent = "";
   const fragmentcarAdd = document.createDocumentFragment();
+
   match.forEach((cars) => {
     const clonecarAdd = templateAddCar.cloneNode(true);
     clonecarAdd.querySelector(".card").setAttribute("id", `${cars.id}`);
@@ -181,6 +213,42 @@ function renderAddCar(match) {
       .setAttribute("alt", `Foto del ${cars.title}`);
     clonecarAdd.querySelector(".card__containerText__model").textContent =
       cars.title;
+
+    clonecarAdd
+      .querySelector(".card__containerText")
+      .setAttribute("id", `${cars.id}`);
+
+    clonecarAdd
+      .querySelector(".card__containerText__containerTransmission__text")
+      .setAttribute("id", `${cars.id}`);
+
+    clonecarAdd.querySelector(
+      ".card__containerText__containerTransmission__text"
+    ).textContent = `Transmisión es: ${cars.transmissionModel}`;
+
+    clonecarAdd
+      .querySelector(".card__containerText__containerfuel__text")
+      .setAttribute("id", `${cars.id}`);
+
+    clonecarAdd.querySelector(
+      ".card__containerText__containerfuel__text"
+    ).textContent = `Combustible es: ${cars.fuel}`;
+
+    clonecarAdd
+      .querySelector(".card__containerText__containerEngineOil__text")
+      .setAttribute("id", `${cars.id}`);
+
+    clonecarAdd.querySelector(
+      ".card__containerText__containerEngineOil__text"
+    ).textContent = `Aceite de motor: ${cars.oilMotorModel}`;
+
+    clonecarAdd
+      .querySelector(".card__containerText__containerTransmissionOil__text")
+      .setAttribute("id", `${cars.id}`);
+
+    clonecarAdd.querySelector(
+      ".card__containerText__containerTransmissionOil__text"
+    ).textContent = `Aceite de transmisión:: ${cars.oilTransmissionModel}`;
 
     clonecarAdd
       .querySelector(".card__containerHistory")
@@ -380,9 +448,7 @@ inputModel.addEventListener("keyup", (e) => {
 
 //Cambiar valores de Kilometrajes para aceite de motor, aceite de transmision y distribucion
 
-function modifyValues() {
-
-
+function modifyValuesReport() {
   historyCars = document.querySelectorAll(".card__containerHistory");
   historyCars.forEach((history) => {
     history.addEventListener("click", (e) => {
@@ -398,7 +464,6 @@ function modifyValues() {
           e.stopImmediatePropagation();
           if (e.target.value.match(regularExpressionNumber)) {
             inputOilMotor = e.target.value.trim();
-            console.log(e.target.id);
           } else {
             inputOilMotor = 0;
           }
@@ -415,18 +480,17 @@ function modifyValues() {
         if (inputOilMotor === undefined) {
           inputOilMotor = 0;
         }
-        e.target.addEventListener("click", (e) => {
-          changeOilCars.forEach((changeCar) => {
-            if (changeCar.id.match(history.id)) {
-              changeCar.textContent = `${inputOilMotor} Km`;
 
-              listCards.forEach((car) => {
-                if (changeCar.id.match(car.id)) {
-                  car.oilMotor = `${inputOilMotor} Km`;
-                }
-              });
-            }
-          });
+        changeOilCars.forEach((changeCar) => {
+          if (changeCar.id.match(history.id)) {
+            changeCar.textContent = `${inputOilMotor} Km`;
+
+            listCards.forEach((car) => {
+              if (changeCar.id.match(car.id)) {
+                car.oilMotor = `${inputOilMotor} Km`;
+              }
+            });
+          }
         });
       }
 
@@ -455,18 +519,17 @@ function modifyValues() {
         if (inputTransmissionOil === undefined) {
           inputTransmissionOil = 0;
         }
-        e.target.addEventListener("click", (e) => {
-          changeTransmissionOil.forEach((changeCar) => {
-            if (changeCar.id.match(history.id)) {
-              changeCar.textContent = `${inputTransmissionOil} Km`;
 
-              listCards.forEach((car) => {
-                if (changeCar.id.match(car.id)) {
-                  car.oilTransmission = `${inputTransmissionOil} Km`;
-                }
-              });
-            }
-          });
+        changeTransmissionOil.forEach((changeCar) => {
+          if (changeCar.id.match(history.id)) {
+            changeCar.textContent = `${inputTransmissionOil} Km`;
+
+            listCards.forEach((car) => {
+              if (changeCar.id.match(car.id)) {
+                car.oilTransmission = `${inputTransmissionOil} Km`;
+              }
+            });
+          }
         });
       }
       //Distribution
@@ -495,18 +558,187 @@ function modifyValues() {
         if (inputDistribution === undefined) {
           inputDistribution = 0;
         }
-        e.target.addEventListener("click", (e) => {
-          changeDistribution.forEach((changeCar) => {
-            if (changeCar.id.match(history.id)) {
-              changeCar.textContent = `${inputDistribution} Km`;
 
-              listCards.forEach((car) => {
-                if (changeCar.id.match(car.id)) {
-                  car.distribution = `${inputDistribution} Km`;
-                }
-              });
-            }
-          });
+        changeDistribution.forEach((changeCar) => {
+          if (changeCar.id.match(history.id)) {
+            changeCar.textContent = `${inputDistribution} Km`;
+
+            listCards.forEach((car) => {
+              if (changeCar.id.match(car.id)) {
+                car.distribution = `${inputDistribution} Km`;
+              }
+            });
+          }
+        });
+      }
+    });
+  });
+}
+
+//Cambiar valores de Combustible, Tipo de aceite y transmisión
+
+function modifyValuesModel() {
+  carsModel = document.querySelectorAll(".card__containerText");
+  carsModel.forEach((model) => {
+    model.addEventListener("click", (e) => {
+      //Transmission Model
+      if (
+        e.target.matches(
+          ".card__containerText__containerTransmission__containerTextInput__inputTransmission"
+        )
+      ) {
+        inputTransmissionModel = e.target.value;
+      }
+
+      if (
+        e.target.matches(
+          ".card__containerText__containerTransmission__buttonTransmission"
+        )
+      ) {
+        if (inputTransmissionModel == undefined) {
+          inputTransmissionModel = "Manual";
+        } else {
+          if (inputTransmissionModel === "manual") {
+            inputTransmissionModel = "Manual";
+          } else if (inputTransmissionModel === "automatico") {
+            inputTransmissionModel = "Automático";
+          } else {
+            inputTransmissionModel = "Automático CVT";
+          }
+        }
+
+        changeTransmissionModel = document.querySelectorAll(
+          ".card__containerText__containerTransmission__text"
+        );
+
+        changeTransmissionModel.forEach((transmissionModel) => {
+          if (transmissionModel.id.match(model.id)) {
+            transmissionModel.textContent = `Transmisión es: ${inputTransmissionModel}`;
+
+            listCards.forEach((car) => {
+              if (transmissionModel.id.match(car.id)) {
+                car.transmissionModel = `${inputTransmissionModel}`;
+              }
+            });
+          }
+        });
+      }
+
+      //Fuel Model
+
+      if (
+        e.target.matches(
+          ".card__containerText__containerfuel__containerTextInput__inputFuel"
+        )
+      ) {
+        inputFuelModel = e.target.value;
+      }
+
+      if (e.target.matches(".card__containerText__containerfuel__buttonFuel")) {
+        if (inputFuelModel == undefined) {
+          inputFuelModel = "Nafta";
+        } else {
+          if (inputFuelModel === "nafta") {
+            inputFuelModel = "Nafta";
+          } else if (inputFuelModel === "diesel") {
+            inputFuelModel = "Diesel";
+          } else if (inputFuelModel === "hibrido") {
+            inputFuelModel = "Híbrido";
+          } else {
+            inputFuelModel = "Eléctrico";
+          }
+        }
+
+        changeFuelModel = document.querySelectorAll(
+          ".card__containerText__containerfuel__text"
+        );
+
+        changeFuelModel.forEach((fuelModel) => {
+          if (fuelModel.id.match(model.id)) {
+            fuelModel.textContent = `Combustible es: ${inputFuelModel}`;
+
+            listCards.forEach((car) => {
+              if (fuelModel.id.match(car.id)) {
+                car.fuel = `${inputFuelModel}`;
+              }
+            });
+          }
+        });
+      }
+
+      //Oil Motor Model
+
+      if (
+        e.target.matches(
+          ".card__containerText__containerEngineOil__containerInputButton__inputEngineOil"
+        )
+      ) {
+        e.target.addEventListener("keyup", (e) => {
+          e.stopImmediatePropagation();
+          if (e.target.value.match(regularExpressionString)) {
+            inputOilMotorModel = e.target.value.trim();
+          } else {
+            inputOilMotorModel = "xxxxxxxx";
+          }
+        });
+      }
+      if (
+        e.target.matches(
+          ".card__containerText__containerEngineOil__containerInputButton__buttonEngineOil"
+        )
+      ) {
+        changeEngineOil = document.querySelectorAll(
+          ".card__containerText__containerEngineOil__text"
+        );
+
+        changeEngineOil.forEach((oilModel) => {
+          if (oilModel.id.match(model.id)) {
+            oilModel.textContent = `Aceite de motor: ${inputOilMotorModel}`;
+
+            listCards.forEach((car) => {
+              if (oilModel.id.match(car.id)) {
+                car.oilMotorModel = `${inputOilMotorModel}`;
+              }
+            });
+          }
+        });
+      }
+
+      //Oil Transmission Model
+
+      if (
+        e.target.matches(
+          ".card__containerText__containerTransmissionOil__containerInputButton__inputTransmissionOil"
+        )
+      ) {
+        e.target.addEventListener("keyup", (e) => {
+          e.stopImmediatePropagation();
+          if (e.target.value.match(regularExpressionString)) {
+            inputOilTransmissionModel = e.target.value.trim();
+          } else {
+            inputOilTransmissionModel = "xxxxxxxx";
+          }
+        });
+      }
+      if (
+        e.target.matches(
+          ".card__containerText__containerTransmissionOil__containerInputButton__buttonTransmissionOil"
+        )
+      ) {
+        changeTransmissionOilModel = document.querySelectorAll(
+          ".card__containerText__containerTransmissionOil__text"
+        );
+
+        changeTransmissionOilModel.forEach((oilTransmissionModel) => {
+          if (oilTransmissionModel.id.match(model.id)) {
+            oilTransmissionModel.textContent = `Aceite de transmisión: ${inputOilTransmissionModel}`;
+
+            listCards.forEach((car) => {
+              if (oilTransmissionModel.id.match(car.id)) {
+                car.oilTransmissionModel = `${inputOilTransmissionModel}`;
+              }
+            });
+          }
         });
       }
     });
@@ -515,29 +747,25 @@ function modifyValues() {
 
 // Deshabilitar menu desplegado sino hay vehiculos en la lista
 
-function disableList(listCards){
-  if(listCards.length>=1){
-    menuDisplayElement.classList.add("active")
-  }else{
-    menuDisplayElement.classList.remove("active")
+function disableList(listCards) {
+  if (listCards.length >= 1) {
+    menuDisplayElement.classList.add("active");
+  } else {
+    menuDisplayElement.classList.remove("active");
   }
-  
 }
-
-
 
 //Evento en el Objeto Window
 
-
 document.addEventListener("click", (e) => {
-
-  if(e.target.matches(".nav__listContainer__item__categories__element__link")){
+  if (
+    e.target.matches(".nav__listContainer__item__categories__element__link")
+  ) {
     closeHam.classList.remove("active");
     linksMenu.classList.remove("active");
     menuHam.classList.remove("active");
     blockMenu.classList.remove("active");
   }
-
 
   if (e.target.matches(".nav__search__buttonlogOut")) {
     containerMessageExitMain.classList.add("active");
@@ -572,9 +800,9 @@ Consulta si hay elementos repetidos
     lastCard = listCards[listCards.length - 1];
     renderAddCar(listCards);
     renderlistCars(listCards);
-    modifyValues();
-    disableList(listCards)
-    
+    modifyValuesReport();
+    modifyValuesModel();
+    disableList(listCards);
   }
 
   if (e.target.matches(".hero__search__inputContainer__button")) {
@@ -611,8 +839,9 @@ Consulta si hay elementos repetidos
           containerMessageRepeatCar.classList.remove("active");
           listSearch.classList.remove("active");
           historyCars = document.querySelectorAll(".card__containerHistory");
-          modifyValues();
-          disableList(listCards)
+          modifyValuesReport();
+          modifyValuesModel();
+          disableList(listCards);
         });
 
         buttonReject.addEventListener("click", (e) => {
@@ -626,8 +855,9 @@ Consulta si hay elementos repetidos
         renderAddCar(listCards);
         renderlistCars(listCards);
         listSearch.classList.remove("active");
-        modifyValues();
-        disableList(listCards)
+        modifyValuesReport();
+        modifyValuesModel();
+        disableList(listCards);
       }
     }
   } else {
