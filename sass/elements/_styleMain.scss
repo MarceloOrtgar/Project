@@ -228,6 +228,7 @@ body {
       align-items: center;
       &__logo {
         width: 50px;
+        transition: width 200ms ease ;
         @media (max-width: 768px) {
           width: 30px;
         }
@@ -299,6 +300,7 @@ body {
           align-items: center;
           transition: scale 300ms ease;
 
+
           &:hover {
             background-color: variables.$dark;
             color: variables.$ligther;
@@ -309,6 +311,29 @@ body {
               transform: scale(0.8);
             }
           }
+        }
+
+        &__linkSearch{
+          text-decoration: none;
+          color: variables.$dark;
+          display: flex;
+          padding: 0.5rem;
+          width: 50%;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          transition: scale 300ms ease;
+          &:hover {
+            background-color: variables.$dark;
+            color: variables.$ligther;
+            border-radius: 0.3rem;
+            transform: scale(1.1);
+
+            @media (max-width: 768px) {
+              transform: scale(0.8);
+            }
+          }
+
         }
         /*Sub Menu*/
 
@@ -690,6 +715,10 @@ body {
         }
       }
     }
+  }
+
+  &__container{
+    background-color: yellow;
   }
 }
 
@@ -1073,6 +1102,7 @@ body {
     color: black;
     font-size: 1rem;
     font-weight: 900;
+    animation: opacityShow  2s linear infinite;
   }
 
   &.disable {
@@ -1107,5 +1137,29 @@ body {
 
   100% {
     transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+
+
+@keyframes opacityShow {
+  0% {
+    opacity: 0;
+  }
+
+  25%{
+    opacity: 0.25;
+  }
+
+  50%{
+    opacity: 5;
+  }
+
+  75%{
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

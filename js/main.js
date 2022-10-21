@@ -1,4 +1,4 @@
-// import { data } from "./data.js";
+
 
 //DECLARACION DE VARIABLES FUNCIONALIDAD WEB
 const menuHam = document.querySelector(".nav__ham");
@@ -99,6 +99,8 @@ let inputFuelModel; // Inputl del combustible del modelo de vehiculo
 
 const regularExpressionNumber = /^[0-9]{1,7}$/; //Expresion regular para validar solo numeros
 const regularExpressionString = /^[A-Za-z]*/;
+
+
 
 //  INICIO ----- DATA-FETCH - IMPRESION DE LA DATA EN EL HTML
 
@@ -880,6 +882,9 @@ Consulta si hay elementos repetidos
   }
 });
 
+
+
+
 // //FIN - FUNCIONALIDAD
 
-// //CONSTANTES DE FUNCIONALIDAD
+

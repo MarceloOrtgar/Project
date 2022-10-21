@@ -1,5 +1,7 @@
 import { data } from "./data.js";
 
+
+//Visualización de carga de página
 const loadingData = (state) => {
   const loading = document.querySelector(".loading");
   if (state) {
@@ -109,18 +111,6 @@ setTimeout(() => {
     });
   }
 
-  //EVENTOS
-
-  //Toma del valor introducido en el input name
-  userInputs[0].addEventListener("keyup", (e) => {
-    inputValueName = e.target.value.trim();
-  });
-
-  //Toma del valor introducido en el input username
-  userInputs[1].addEventListener("keyup", (e) => {
-    inputValueUsername = e.target.value.trim();
-  });
-
   //Mostrar lista de marcas de vehículos
 
   const showListBrandsCars = (data) => {
@@ -197,6 +187,18 @@ setTimeout(() => {
     FavoriteListBrands.appendChild(fragmentFavoriteListBrands);
   };
 
+  //EVENTOS
+
+  //Toma del valor introducido en el input name
+  userInputs[0].addEventListener("keyup", (e) => {
+    inputValueName = e.target.value.trim();
+  });
+
+  //Toma del valor introducido en el input username
+  userInputs[1].addEventListener("keyup", (e) => {
+    inputValueUsername = e.target.value.trim();
+  });
+
   //Buscar elementos coinciden del buscador
   searchBrands.addEventListener("keyup", (e) => {
     brandsChecked();
@@ -234,12 +236,11 @@ setTimeout(() => {
       }
     }
 
-
-    if(e.target.matches(".heroContainerProfile__aside__form__button")){
+    if (e.target.matches(".heroContainerProfile__aside__form__button")) {
       e.preventDefault();
-    errorName.classList.remove("active");
-    errorUsername.classList.remove("active");
-  
+      errorName.classList.remove("active");
+      errorUsername.classList.remove("active");
+
       if (
         regularExpressionName.test(inputValueName) &&
         regularExpressionUsername.test(inputValueUsername) &&
@@ -249,16 +250,18 @@ setTimeout(() => {
         userData[0].textContent = `Nombre: ${inputValueName}`;
         userData[1].textContent = `Username: ${inputValueUsername}`;
         showFavoriteBrandsCars(elementChecked);
-        userInputs[0].value=""
-        userInputs[1].value=""
-        elementChecked=[]
-        searchBrands.value="";
-        listBrands = document.querySelectorAll(".heroContainerProfile__aside__form__carsBrands__container__checkbox")
-        listBrands.forEach(brand=>{
-          brand.checked=false
-        })
-        inputValueName=undefined
-        inputValueUsername=undefined
+        userInputs[0].value = "";
+        userInputs[1].value = "";
+        elementChecked = [];
+        searchBrands.value = "";
+        listBrands = document.querySelectorAll(
+          ".heroContainerProfile__aside__form__carsBrands__container__checkbox"
+        );
+        listBrands.forEach((brand) => {
+          brand.checked = false;
+        });
+        inputValueName = undefined;
+        inputValueUsername = undefined;
         showListBrandsCars(data);
       } else {
         brandsChecked();
@@ -275,9 +278,7 @@ setTimeout(() => {
           errorUsername.classList.add("active");
         }
       }
-  
     }
-
   });
 
   loadingData(false);

@@ -1,0 +1,211 @@
+@use "variables";
+
+.hero {
+
+  &__titleSendUser{
+
+    font-size: 1.8em;
+    text-align: center;
+    margin: 1rem 0;
+    width: 50%;
+    font-size: 1.3em;
+
+    @media (max-width: 768px) {
+      font-size: 1.1em;
+    }
+  }
+  &__titleSend {
+    text-align: center;
+    margin: 1rem 0;
+    width: 50%;
+    font-size: 1.3em;
+    
+
+    @media (max-width: 768px) {
+      font-size: 1.1em;
+    }
+  }
+
+  &__selectedCar{
+    display: none;
+
+    &.active{
+      background-color: variables.$ligther;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1em;
+    }
+
+
+    @media (max-width: 768px) {
+      height: 278px;
+      font-size: 0.8em;
+    }
+  }
+
+  &__containerList {
+    display: flex;
+    gap: 1rem;
+    background-color: variables.$ligther;
+    padding: 0.8rem;
+    position: relative;
+    border-radius: 0.5rem;
+    width: 350px;
+    height: 230px;
+
+    @media (max-width: 768px) {
+    }
+
+
+
+    &__previous {
+      display: none;
+      &.active{
+        top: 45%;
+        left: -4%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        border: none;
+        position: absolute;
+        display: block;
+  
+      }
+    }
+
+    &__next {
+  
+      display: none;
+      &.active{
+        top: 45%;
+        left: 97%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        border: none;
+        position: absolute;
+        display: block;
+      }
+    }
+
+    &__container {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      scroll-behavior: smooth;
+
+
+      &__carousel {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        gap: 1rem;
+
+        &__element {
+          background-color: variables.$dark;
+          padding: 0.2rem;
+          text-align: center;
+          border-radius: 0.4rem;
+          color: white;
+          cursor: pointer;
+
+          &:hover{
+            transform: scale(1.05);
+            opacity: 0.5;
+          }
+
+          &__text {
+            font-size: 1em;
+          }
+
+          &__img {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+  &__containerSelectedCar {
+    min-width: 250px;
+    max-width: 750px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    background-color: variables.$dark;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: variables.$ligther;
+    font-size: 0.8em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__transfer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+
+    &__input{
+      background-color:  rgb(156, 156, 155);
+      border: variables.$border;
+      color: variables.$ligther;
+      text-align: center;
+      border-radius: 1rem;
+      padding: 0.2rem;
+      transform: scale(1);
+      transition: transform 200ms ease;
+      width: 250px;
+      margin: auto;
+
+      &:focus {
+        box-shadow: 0px 0px 6px 2px variables.$lightgray;
+        outline: none;
+        transform: scale(0.95);
+      }
+    }
+
+    &__button {
+      background-color: rgb(156, 156, 155);
+      color: variables.$ligther;
+      font-weight: 500;
+      border-radius: 1rem;
+      padding: 0.4rem 0.8rem;
+      border: none;
+      font-family: variables.$font-family;
+      cursor: pointer;
+      transition: background-color 300ms ease;
+      text-decoration: none;
+      height: 25px;
+      display: block;
+      font-size: 0.8em;
+
+      &:hover {
+        background-color: variables.$dark;
+        color: variables.$ligther;
+      }
+    }
+  }
+
+
+}
+
+.gg-arrow-left-o,
+.gg-arrow-right-o {
+  cursor: pointer;
+  display: none;
+
+}

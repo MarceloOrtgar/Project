@@ -277,6 +277,7 @@ video {
   transition: right 150ms ease;
   z-index: 50;
 
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -366,6 +367,11 @@ video {
         color: variables.$lightgray;
         background-color: variables.$ligther;
         cursor: pointer;
+
+        @media (max-width: 768px) {
+          top: 65%;
+          left: 67%;
+        }
         &.active{
           color: variables.$ligther;
           background-color: variables.$lightgray;
@@ -399,8 +405,7 @@ video {
 
   &.disable {
     position: absolute;
-    right: -200%;
-    // display: none;
+    display: none;
 
   }
 }

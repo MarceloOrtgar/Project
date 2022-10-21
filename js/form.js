@@ -1,3 +1,5 @@
+//Visualización de carga de página
+
 const loadingData = (state) => {
   const loading = document.querySelector(".loading");
   if (state) {
@@ -9,6 +11,9 @@ const loadingData = (state) => {
 loadingData(true);
 
 setTimeout(() => {
+
+  //Declaración de variables
+  
   //Formulario
 
   const form = document.querySelector(".form");
@@ -22,7 +27,7 @@ setTimeout(() => {
   const regex_email =
     /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   const regexp_password =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
 
   //Elementos a validar del HTML
 

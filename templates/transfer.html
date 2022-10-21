@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevCar</title>
+    <link rel="icon" href="../images/icons8-car-repair-64.png" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href='https://css.gg/arrow-right-o.css' rel='stylesheet'>
+    <link href='https://css.gg/arrow-left-o.css' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <section class="loading">
+      <div class="loading__container">
+        <div class="loading__container__ring"></div>
+        <div class="loading__container__ring"></div>
+        <div class="loading__container__ring"></div>
+        <span class="loading__text">Cargando...</span>
+      </div>
+    </section>
+
+
+    <header class="hero__header">
+      <nav class="nav">
+        <section class="nav__logoContainer">
+          <img
+            src="../images/icons8-car-repair-64.png"
+            alt="Logo principal"
+            class="nav__logoContainer__logo"
+          />
+          <h1 class="navMain__logoContainer__text">DevCar</h1>
+        </section>
+        <img src="../images/Menu.svg" alt="hamburguer menu" class="nav__ham" />
+        <img
+          src="../images/Close.svg"
+          alt="Close hamburguer menu"
+          class="nav__closeHam"
+        />
+
+        <ul class="nav__listContainer">
+          <li class="nav__listContainer__item">
+            <a href="main.html" class="nav__listContainer__item__linkSearch">Inicio</a>
+          </li>
+
+        </ul>
+        <section class="nav__search">
+
+          <a href="profile.html" class="nav__search__buttonProfile">Perfil</a>
+          <button class="nav__search__buttonlogOut">Salir</button>
+        </section>
+      </nav>
+    </header>
+
+    <main class="hero">
+        <h1 class="hero__titleSend">Transfiere los datos del vehículo a el nuevo propietario</h1>
+        <h2>Seleccione el vehículo a enviar:</h2>
+    <section class="hero__containerList">
+        <button  class="hero__containerList__previous" aria-label="Name">
+          <i class="gg-arrow-left-o"></i>
+        </button>
+        <div class="hero__containerList__container">
+
+        </div>
+
+        <button class="hero__containerList__next" aria-label="Name">
+          <i class="gg-arrow-right-o"></i>
+        </button>
+    </section>
+
+    <h3 class="hero__titleSend">Datos del vehículo seleccionado</h3>
+    <div class="hero__selectedCar">
+
+
+    </div>
+   
+     <h2 class="hero__titleSendUser">Introduzca el correo del usuario que recibe la tarjeta del vehículo</h2>
+     <section class="hero__transfer">
+      
+      <label for="send" class="hero__transfer__label">Enviar Vehículo</label>
+        <input type="text" id="send" class="hero__transfer__input" placeholder="Usuario que recibe"></input>
+        <button class="hero__transfer__button">Enviar Vehículo</button>
+     </section>
+    </main>
+
+    
+    <footer class="footer">
+      <section class="nav__logoContainer">
+        <img
+          src="../images/icons8-car-repair-64.png"
+          alt="Logo principal"
+          class="nav__logoContainer__logo"
+        />
+        <h2 class="nav__logoContainer__text">DevCar</h2>
+      </section>
+      <section class="footer__conditions">
+        <p class="footer__conditions__item">Términos y condiciones</p>
+        <p class="footer__conditions__item">Política de cookies</p>
+        <p class="footer__conditions__item">Política de privacidad</p>
+    </section>
+    <section class="footer__socialmedia">
+
+
+      <a href="https://www.facebook.com/marcelo.ortega.33821" target="_blank"><div class="footer__socialmedia__container"><img src="../images/Facebook.svg" alt="Red social Facebook" class="footer__socialmedia__container__image"></div></a>
+      <a href="https://www.instagram.com/marcelortgar/" target="_blank"><div class="footer__socialmedia__container"><img src="../images/Instagram.svg" alt="Red social Instagram" class="footer__socialmedia__container__image"></div></a>
+      <a href="https://twitter.com/OrtgMarcelo" target="_blank"><div class="footer__socialmedia__container"><img src="../images/Twitter.svg" alt="Red social Twitter" class="footer__socialmedia__container__image"></div></a>
+    </section>
+    <section class="footer__creator">
+      <p>© Todos los Derechos Reservados</p>
+      <P>DevCar</P>
+      <p>Desarrollado por: Marcelo Ortega</p>
+    </footer>
+
+
+    <div class="blockMenu">
+    </div>
+    <div class="exitMessage">
+      <div class="exit">
+        <h2>¿Quieres cerrar la sesión?</h2>
+        <div class="exit__container">
+        <a href="index.html" class="exit__logOut">Cerrar Sesion</a>
+        <button class="exit__reject">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+
+    <template id="OwnCars">
+      <div class="hero__containerList__container__carousel__element">
+        <img src="../images/Toyota.jpg" alt="Vehiculo toyota" class="hero__containerList__container__carousel__element__img">
+        <h3 class="hero__containerList__container__carousel__element__text">Toyota Hilux</h3>
+        <h3 class="hero__containerList__container__carousel__element__id">Id: XXXX</h3>
+
+      </div>
+    </template>
+
+    <template id="selectCar">
+      <section class="hero__containerSelectedCar">
+        <img src="../images/Toyota.jpg" alt="Foto del vehiculo a enviar" class="hero__containerSelectedCar__img">
+        <h2 class="hero__containerSelectedCar__textTitle">Modelo: Toyota Hilux</h2>
+        <h2 class="hero__containerSelectedCar__textId">ID:XXXXX</h2>
+     </section>
+    </template>
+
+
+    <script src="../js/transfer.js" type="module"></script>
+
+  </body>
+</html>
