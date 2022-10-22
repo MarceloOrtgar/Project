@@ -26,7 +26,7 @@ setTimeout(()=>{
   const regex_user =
     /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   const regexp_password =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,15}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}/;
 
   //Datos erroneos
   const wrongUser = document.querySelector(".signIn__form__alert__user");
