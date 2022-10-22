@@ -46,7 +46,7 @@ setTimeout(()=>{
   //Eventos
 
   window.addEventListener("click", (e) => {
-    console.log(e.target);
+
 
     if (e.target.matches(".navIndex__search__buttonSign")) {
       signIn.classList.remove("disable");
@@ -63,7 +63,6 @@ setTimeout(()=>{
         regex_user.test(inputUser.value) &&
         regexp_password.test(inputPassword.value)
       ) {
-        console.log("Hermano plomooo");
       } else {
         e.preventDefault();
         if (!regex_user.test(inputUser.value)) {

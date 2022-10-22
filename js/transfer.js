@@ -115,7 +115,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   listOwnCars.push(allData[0][3]);
   listOwnCars.push(allData[0][4]);
 
-  console.log(listOwnCars);
+
   if (listOwnCars.length >= 3) {
     buttonNext.classList.add("active");
     buttonPrevious.classList.add("active");
@@ -177,7 +177,7 @@ document.addEventListener("click", (e) => {
     imageL = imageL - 1;
 
     if (listOwnCars.length % 2 == 0) {
-      console.log("entramos");
+  
       if (imageL == 0) {
         imageL = listOwnCars.length;
       }
@@ -307,7 +307,7 @@ function renderShowCar(car) {
   selectedCar.textContent="";
 
   const fragmentSelectCar = document.createDocumentFragment();
-  console.log(car)
+ 
 
   car.forEach((elements) => {
     const cloneSelectedcar = templateSelectCar.cloneNode(true);

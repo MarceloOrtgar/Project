@@ -1385,7 +1385,7 @@ video {
   height: 19.2px;
   border-radius: 0.4rem;
   top: 63%;
-  left: 65%;
+  left: 66%;
   font-size: 0.8em;
   transition: left 200ms ease;
   color: #353a3b;
@@ -1394,7 +1394,7 @@ video {
 }
 @media (max-width: 768px) {
   .signIn__form__containerPassword__containerShow {
-    top: 65%;
+    top: 63%;
     left: 67%;
   }
 }
