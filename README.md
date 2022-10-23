@@ -5,7 +5,7 @@ DevCar es una Web App que busca lograr tener registros de los mantenimientos bá
 Es importante poder llevar un buen control de los mantenimientos ya que estos permiten prolongar la vida útil del vehículo.
 
 
-Enlace Web del Proyecto: https://projectdevcar.netlify.app/templates/main.html
+Enlace Web del Proyecto: projectdevcar.netlify.app
 
 
 
