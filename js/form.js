@@ -27,7 +27,7 @@ setTimeout(() => {
   const regex_email =
     /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   const regexp_password =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,15}/;
+    /^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,15}$/;
 
   //Elementos a validar del HTML
 
