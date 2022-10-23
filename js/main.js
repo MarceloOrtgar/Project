@@ -119,8 +119,8 @@ const fetchDataModels = async () => {
   const optionsModels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "40b508f7f4msh76ab874cb940e38p1f9dc0jsn6fd489662cbf",
-      "X-RapidAPI-Host": "all-cars.p.rapidapi.com",
+      'X-RapidAPI-Key': '5f459bcd00msh4dfaac66d72e04cp1ae964jsnd769680ddfc8',
+      'X-RapidAPI-Host': 'all-cars.p.rapidapi.com',
     },
   };
 

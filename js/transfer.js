@@ -32,10 +32,9 @@ const listCars = document.querySelector(".hero__containerList__container");
 const buttonPrevious = document.querySelector(".hero__containerList__previous");
 const buttonNext = document.querySelector(".hero__containerList__next");
 
+const selectedCar = document.querySelector(".hero__selectedCar");
 
-const selectedCar=document.querySelector(".hero__selectedCar")
-
-const textInformation=document.querySelector(".hero__titleSend")
+const textInformation = document.querySelector(".hero__titleSend");
 
 //Templates
 
@@ -73,8 +72,8 @@ const fetchDataModels = async () => {
   const optionsModels = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "40b508f7f4msh76ab874cb940e38p1f9dc0jsn6fd489662cbf",
-      "X-RapidAPI-Host": "all-cars.p.rapidapi.com",
+      'X-RapidAPI-Key': '5f459bcd00msh4dfaac66d72e04cp1ae964jsnd769680ddfc8',
+      'X-RapidAPI-Host': 'all-cars.p.rapidapi.com',
     },
   };
 
@@ -94,8 +93,6 @@ const fetchDataModels = async () => {
   }
 };
 
-
-
 window.addEventListener("DOMContentLoaded", async () => {
   const dataModels = await fetchDataModels();
   allData.push(dataModels);
@@ -114,7 +111,6 @@ window.addEventListener("DOMContentLoaded", async () => {
   listOwnCars.push(allData[0][2]);
   listOwnCars.push(allData[0][3]);
   listOwnCars.push(allData[0][4]);
-
 
   if (listOwnCars.length >= 3) {
     buttonNext.classList.add("active");
@@ -177,7 +173,6 @@ document.addEventListener("click", (e) => {
     imageL = imageL - 1;
 
     if (listOwnCars.length % 2 == 0) {
-  
       if (imageL == 0) {
         imageL = listOwnCars.length;
       }
@@ -234,16 +229,16 @@ document.addEventListener("click", (e) => {
     ) ||
     e.target.matches(".hero__containerList__container__carousel__element__id")
   ) {
-    selectedElement=[];
+    selectedElement = [];
     listOwnCars.forEach((selected) => {
       if (selected.id == e.target.id) {
         selectedElement.push(selected);
       }
     });
 
-    textInformation.classList.add("active")
-    selectedCar.classList.add("active")
-    renderShowCar(selectedElement)
+    textInformation.classList.add("active");
+    selectedCar.classList.add("active");
+    renderShowCar(selectedElement);
   }
 });
 
@@ -304,10 +299,9 @@ function renderListCars(match) {
 //Render vehiculo seleccionado
 
 function renderShowCar(car) {
-  selectedCar.textContent="";
+  selectedCar.textContent = "";
 
   const fragmentSelectCar = document.createDocumentFragment();
- 
 
   car.forEach((elements) => {
     const cloneSelectedcar = templateSelectCar.cloneNode(true);
@@ -316,11 +310,11 @@ function renderShowCar(car) {
       .querySelector(".hero__containerSelectedCar__img")
       .setAttribute("src", `${elements.img}`);
 
-      cloneSelectedcar
+    cloneSelectedcar
       .querySelector(".hero__containerSelectedCar__img")
       .setAttribute("alt", `Foto de ${elements.title}`);
 
-      cloneSelectedcar.querySelector(
+    cloneSelectedcar.querySelector(
       ".hero__containerSelectedCar__textTitle"
     ).textContent = `Modelo ${elements.title} `;
     cloneSelectedcar.querySelector(
@@ -328,9 +322,9 @@ function renderShowCar(car) {
     ).textContent = `ID ${elements.id} `;
 
     fragmentSelectCar.appendChild(cloneSelectedcar);
-  })
+  });
 
-    selectedCar.appendChild(fragmentSelectCar);
+  selectedCar.appendChild(fragmentSelectCar);
 }
 
 // //FIN - FUNCIONALIDAD
